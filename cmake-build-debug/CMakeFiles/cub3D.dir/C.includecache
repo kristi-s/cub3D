@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../libft/libft.h
+string.h
+-
+stdlib.h
+-
+unistd.h
+-
+
+../mlx/mlx.h
+
+/Users/kristinasmirnova/21_school/cub3D/cub3D.h
+stdlib.h
+-
+unistd.h
+-
+stdio.h
+-
+string.h
+-
+fcntl.h
+-
+math.h
+-
+mlx.h
+/Users/kristinasmirnova/21_school/cub3D/mlx.h
+libft.h
+/Users/kristinasmirnova/21_school/cub3D/libft.h
+
+/Users/kristinasmirnova/21_school/cub3D/paint_texture.c
+cub3D.h
+/Users/kristinasmirnova/21_school/cub3D/cub3D.h
+

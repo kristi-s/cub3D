@@ -1,0 +1,6 @@
+a.out
+.DS_Store
+cat
+abc_size.c
+*.o
+_*
