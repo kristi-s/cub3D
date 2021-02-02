@@ -115,6 +115,8 @@ t_data		*ft_paint_texture(char *file, void *ptr_mlx);
 void 	draw_txtr(t_map *map_info, t_data *txtr, int x, int y0, int y1, double wall_x, int lineHeight);
 void 	ft_draw_floor_ceiling(t_map *map_info, int x, int y1, int y2);
 
+// ft_valid_map можно сделать воид?
+int		ft_valid_map(t_map *map_info);
 void	ft_puterror(void);
 void	ft_puterror_mem(void);
 void	ft_puterr_clean(char *arr);

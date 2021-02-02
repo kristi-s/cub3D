@@ -4,7 +4,7 @@ project(cub3D C)
 set(CMAKE_C_STANDARD 11)
 
 include_directories(.)
-include_directories(mlx)
+include_directories(minilibx_mms_20200219)
 include_directories(libft)
 include_directories(get_next_line)
 include_directories(includes)
@@ -22,4 +22,4 @@ add_executable(cub3D
 #        get_next_line/get_next_line.h
         ${LIBFT}
         ${SRCS}
-        main.c)
+        main.c valid_map.c)

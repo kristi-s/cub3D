@@ -16,7 +16,7 @@ int 	ft_contents_of_line(char *line, t_map *map_info, char *content)
 	if (line[i] == '\0')
 		return (1);
 	i = 0;
-	// нужно ли выдавать ошибку если пустая строка в середине карты??
+	//выдавать ошибку если пустая строка в середине карты не должно быть пустых стр)
 	// сохранять максимальную длину строки
 	map_info->count_line_in_map++; // cчитаем к-во строк
 	if (ft_strlen(line) > map_info->max_line_len)
@@ -29,12 +29,18 @@ int 	ft_contents_of_line(char *line, t_map *map_info, char *content)
 			{
 				map_info->position_player = line[i];
 //				printf("strart: %d %d  |", i, map_info->count_line_in_map - 1);
-				map_info->cam = set_pos_player(i, map_info->count_line_in_map - 1, map_info->position_player); ////ставить проверки
+//		добавить (count_line - 1), если не будем добавлять в карту строку с единицами вначале
+				map_info->cam = set_pos_player(i, map_info->count_line_in_map, map_info->position_player); ////ставить проверки
 				//(unsigned int p_x, unsigned int p_y, char way_player)
 			}
 			// определять положение игрока
 			else
-				return (-1); // ошибка "заданно несколько позиций игрока"
+			{
+// ошибка "заданно несколько позиций игрока"
+				write(2, "Error map: more than one position player\n", 41);
+				exit(1);
+			}
+
 		}
 		i++;
 	}
@@ -64,8 +70,11 @@ int 	ft_copy_map(char *line, t_map *map_info)
 			map_info->last_row = newlist;
 		}
 		else
-			return (-1);// ошибка первой строки, содержит символы не из строки "1 " ft_puterror;
-			// заменить на exit(1)
+		{
+// ошибка "в первой строке есть символы кроме "1 " "
+			write(2, "Error map: not valid first line of map\n", 39);
+			exit(1);
+		}
 	}
 	else
 	{
@@ -75,8 +84,11 @@ int 	ft_copy_map(char *line, t_map *map_info)
 			map_info->last_row = newlist;
 		}
 		else
-			return (-1);// ошибка первой строки, содержит символы не из строки "012NSWE "
-		// заменить на exit(1)
+		{
+// ошибка "в строке есть символы кроме "012NSWE " "
+			write(2, "Error map: not valid simbol in line of map\n", 43);
+			exit(1);
+		}
 	}
 	return (1);
 }
@@ -89,13 +101,17 @@ void	ft_create_arr_map(t_map *map_info)
 	int 			i;
 	int 			count;
 
-	//printf("len = %d, count line = %d \n", map_info->max_line_len, map_info->count_line_in_map);
+//	printf("len = %d, count line = %d \n", map_info->max_line_len, map_info->count_line_in_map);
+	map_info->count_line_in_map++;
 	size_arr = map_info->max_line_len * map_info->count_line_in_map;
 	if (!(map_info->arr_map = malloc(sizeof(char) * size_arr)))
 		return(ft_puterror_mem()); // заменить на exit(1);
+
+	count = 0;
+	while (count < map_info->max_line_len)
+		map_info->arr_map[count++] = '1';
 	ptr_line = map_info->start_row;
 	i = 0;
-	count = 0;
 	while(ptr_line != NULL)
 	{
 		while(((char *)ptr_line->content)[i] != '\0')
@@ -113,7 +129,9 @@ void	ft_create_arr_map(t_map *map_info)
 		ptr_line = ptr_line->next;
 		i = 0;
 	}
-	//для отладки
+	ft_valid_map(map_info);
+//	для отладки
+	printf("map ok \n");
 //	i = 0;
 //	while (i < size_arr)
 //	{

@@ -71,20 +71,6 @@ void 	ft_choose_action(int i, t_map *map_info)
 	}
 }
 
-//mlx_do_sync(sv->mlx);
-//	check_buttons_state(sv);
-//	sv->img.img = mlx_new_image(sv->mlx, sv->map.res_w, sv->map.res_h);
-
-//	ft_alloc_check(sv->img.img);
-//	sv->img.addr = mlx_get_data_addr(sv->img.img, &sv->img.bits_per_pixel, \
-//									&sv->img.line_length, &sv->img.endian);
-//	set_sprites_coordinates(sv);
-//	cast_frame(sv);
-//	mlx_put_image_to_window(sv->mlx, sv->win, sv->img.img, 0, 0);
-//	mlx_destroy_image(sv->mlx, sv->img.img);
-//	if (PRINT_FRAME_NUMBER)
-//		print_frame_number();
-//	return (0);
 
 int     ft_render_next(t_map *map_info)
 {
@@ -135,19 +121,14 @@ void 	ft_move(t_cam *cam, char *arr_map, unsigned int size, int way)
 	}
 	new_x = cam->pos_x + (dir * delta_x);
 	new_y = cam->pos_y + (dir * delta_y);
-//	printf("\n| pos x = %f %f ", cam->pos_x, cam->pos_y);
+
 // добавить проверку о выхода за границы массива
-//	if ((int)(new_x + 0.3) + ((int)(new_y + 0.3) * size) < 0 ||
-//			(int)(new_x + 0.3) + ((int)(new_y + 0.3) * size) > size * map_info->count  )
+// 	если карта закрыта, то не будет выходить за границы ????
 	if (arr_map[(int)(new_x) + ((int)(new_y) * size)] != '1')
 	{
-//	if (arr_map[(int)(new_x + 0.4) + ((int)(cam->pos_y + 0.4) * size)] != '1')
 		cam->pos_x = new_x;
-//	if (arr_map[(int)(cam->pos_x + 0.4) + ((int)(new_y + 0.4) * size)] != '1')
 		cam->pos_y = new_y;
 	}
-//	printf("| arr = %d ", size);
-//	printf("| pos new = %f %f ", new_x, new_y);
 }
 
 // call ft_turn(map_info->cam, keycode)

@@ -1,3 +1,3 @@
-/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles/cub3D.dir
+/Users/droslyn/cub3D/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/droslyn/cub3D/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/droslyn/cub3D/cmake-build-debug/CMakeFiles/cub3D.dir

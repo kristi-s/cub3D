@@ -50,6 +50,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/cub3D.dir/main.c.o"
   "CMakeFiles/cub3D.dir/paint_texture.c.o"
   "CMakeFiles/cub3D.dir/read_map.c.o"
+  "CMakeFiles/cub3D.dir/valid_map.c.o"
   "cub3D"
   "cub3D.pdb"
 )

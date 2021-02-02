@@ -2,6 +2,7 @@
 // read map and check error
 // malloc: line, map_info;
 //
+#include <minilibx_mms_20200219/mlx.h>
 #include "cub3D.h"
 
 // -1 - error, 1 - success
@@ -59,6 +60,8 @@ int		ft_isspace(char c)
 void	ft_check_resolution(char *line, t_map *map_info)
 {
 	int 			i;
+	int		x;
+	int		y;
 
 	i = 0;
 	if ((map_info->resolution_x = ft_atoi(line)) <= 0)
@@ -70,6 +73,9 @@ void	ft_check_resolution(char *line, t_map *map_info)
 	if ((map_info->resolution_y = ft_atoi(&line[i])) <= 0)
 		return;
 	// проверять не привышает ли разрешение экрана
+	mlx_get_screen_size(map_info->mlx, &x, &y);
+	printf("res_x = %d  res_y = %d \n", map_info->resolution_x, map_info->resolution_y);
+	printf("x = %d  y = %d \n", x, y);
 }
 
 // получаем цвет
