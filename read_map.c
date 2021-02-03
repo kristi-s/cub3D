@@ -86,7 +86,7 @@ int		ft_create_trgb_color(int t, int r, int g, int b)
 
 // какие могут быть ошибки 	ещё??
 // если цвет меньше 0 или больше 255.
-int 	ft_get_color(char *line, t_map *map_info)
+void 	ft_get_color(char *line, t_map *map_info)
 {
 	int 	i;
 	int 	red;
@@ -106,12 +106,15 @@ int 	ft_get_color(char *line, t_map *map_info)
 	i++;
 	blue = ft_atoi(&line[i]);
 	if (red < 0 || red > 255 || blue < 0 || blue > 255 || green < 0 || green > 255)
-		return (-1); // возвращаем ошибку
+	{
+		write(2, "Error map: RGB color not in range [0,255]\n", 42);
+		exit(1);
+	}
 	if (line[0] == 'F')
 		map_info->floor_color = ft_create_trgb_color(0, red, green, blue);
 	if (line[0] == 'C')
 		map_info->ceilling_color = ft_create_trgb_color(0, red, green, blue);
-	return (0);
+	return;
 }
 
 // как обрабатывать тут ошибки
@@ -140,12 +143,15 @@ int		ft_check_texture(char *line, t_map *map_info)
 int 	ft_parse_line(char *line, t_map *map_info)
 {
 	int		i;
-
+	static int flag_split;
 	i = 0;
 	if (!line)
 		return (0); // вернуть ошибку??
+//		оптимизировать проверку пустых строк
 	if (line[0] == '\0')
 	{
+		if (map_info->start_row != NULL)
+			flag_split = 1;
 		free(line);
 		return (1);
 	}
@@ -156,17 +162,21 @@ int 	ft_parse_line(char *line, t_map *map_info)
 	else if(line[i] == 'N' || line[i] == 'S' || line[i] == 'W' || line[i] == 'E')
 		ft_check_texture(&line[i], map_info);
 	else if (line[i] == 'F' || line[i] == 'C')
-	{
-		if ((ft_get_color(&line[i], map_info)) == -1)
-			return (ft_error(line, map_info)); // печатать ошибку и заменить на exit(1)??
-	}
+		ft_get_color(&line[i], map_info);
 	else if (line[i] == '\0')
 	{
+		if (map_info->start_row != NULL)
+			flag_split = 1;
 		free(line);
 		return (1);
 	}
 	else
 	{
+		if (flag_split == 1)
+		{
+			write(2, "Error map: map is split\n", 24);
+			exit(1);
+		}
 		ft_copy_map(line, map_info); // анализировать ошибки?
 	}
 	if (line != NULL)

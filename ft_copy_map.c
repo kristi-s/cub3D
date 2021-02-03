@@ -13,8 +13,15 @@ int 	ft_contents_of_line(char *line, t_map *map_info, char *content)
 	// проверка если строка пустая пропускать её
 	while(ft_isspace(line[i]))
 		i++;
-	if (line[i] == '\0')
-		return (1);
+//	if (line[i] == '\0')
+//	{
+//		if (map_info->start_row != NULL)
+//		{
+//			write(2, "Error map: map is split\n", 24);
+//			exit(1);
+//		}
+//		return (1);
+//	}
 	i = 0;
 	//выдавать ошибку если пустая строка в середине карты не должно быть пустых стр)
 	// сохранять максимальную длину строки

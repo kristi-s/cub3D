@@ -58,8 +58,8 @@ int		main(int argc, char **argv)
 			//parse
 			//init
 		ft_init_info(map_info);
-		map_info->resolution_y = 600;
-		map_info->resolution_x = 800;
+		map_info->resolution_y = 1200;
+		map_info->resolution_x = 1600;
 //перенести все в др место
 		map_info->mlx = mlx_init();
 		map_info->win = mlx_new_window(map_info->mlx, map_info->resolution_x, map_info->resolution_y, argv[1]);

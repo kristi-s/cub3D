@@ -14,6 +14,8 @@ stdlib.h
 unistd.h
 -
 
+../minilibx_mms_20200219/mlx.h
+
 /Users/droslyn/cub3D/cub3D.h
 stdlib.h
 -
@@ -34,7 +36,9 @@ libft.h
 
 /Users/droslyn/cub3D/mlx.h
 
-/Users/droslyn/cub3D/valid_map.c
+/Users/droslyn/cub3D/read_map.c
+minilibx_mms_20200219/mlx.h
+-
 cub3D.h
 /Users/droslyn/cub3D/cub3D.h
 
