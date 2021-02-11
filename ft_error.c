@@ -12,6 +12,7 @@ void	ft_puterror(void)
 void	ft_puterror_mem(void)
 {
 	write(2, "Error memory allocation\n", 24);
+	exit(1);
 }
 
 void	ft_puterr_clean(char *arr)

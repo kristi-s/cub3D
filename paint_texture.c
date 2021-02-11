@@ -1,20 +1,57 @@
 #include "cub3D.h"
 
-// можно передавать ptr_mlx, path (путь н-р "./txtr.xpm",
-// и адрес куда записать указатель на полученную структуру)
-t_data		*ft_paint_texture(char *file, void *ptr_mlx)
+
+t_data		*ft_create_img_txtr(char *file, void *ptr_mlx)
 {
-	t_data  *txtr;
+	t_data *txtr;
 
 	if (!(txtr = malloc(sizeof(t_data))))
-		exit(1); // добавить функцию ft_exit;
+		ft_puterror_mem();
 	txtr->img = mlx_xpm_file_to_image(ptr_mlx, file, \
 							&txtr->width, &txtr->height);
-   	if (!txtr->img)
+	if (!txtr->img)
+	{
+		write(2, "Error map: error texture\n", 25);
 		exit(1); // добавить функцию ft_exit;
+	}
 	txtr->addr = mlx_get_data_addr(txtr->img, &txtr->bits_per_pixel, \
 							&txtr->line_length, &txtr->endian);
 	return (txtr);
+}
+
+// можно передавать ptr_mlx, path (путь н-р "./txtr.xpm",
+// и адрес куда записать указатель на полученную структуру)
+void		ft_paint_texture(t_map *map_info)
+//		char *file, void *ptr_mlx)
+{
+	map_info->wall_n = ft_create_img_txtr(map_info->north_txtr, map_info->mlx);
+	map_info->wall_s = ft_create_img_txtr(map_info->south_txtr, map_info->mlx);
+	map_info->wall_e = ft_create_img_txtr(map_info->east_txtr, map_info->mlx);
+	map_info->wall_w = ft_create_img_txtr(map_info->west_txtr, map_info->mlx);
+	map_info->sprite = ft_create_img_txtr(map_info->sprite_txtr, map_info->mlx);
+
+//	if ((!(map_info->wall_n = malloc(sizeof(t_data)))) ||
+//		(!(map_info->wall_s = malloc(sizeof(t_data)))) ||
+//		(!(map_info->wall_e = malloc(sizeof(t_data)))) ||
+//		(!(map_info->wall_w = malloc(sizeof(t_data)))))
+//		ft_puterror_mem();
+//	map_info->wall_n->img = mlx_xpm_file_to_image(map_info->mlx, map_info->north_txtr, \
+//							&map_info->wall_n->width, &map_info->wall_n->height);
+//	map_info->wall_s->img = mlx_xpm_file_to_image(map_info->mlx, map_info->south_txtr, \
+//							&map_info->wall_s->width, &map_info->wall_s->height);
+//	map_info->wall_e->img = mlx_xpm_file_to_image(map_info->mlx, map_info->east_txtr, \
+//							&map_info->wall_e->width, &map_info->wall_e->height);
+//	map_info->wall_w->img = mlx_xpm_file_to_image(map_info->mlx, map_info->west_txtr, \
+//							&map_info->wall_w->width, &map_info->wall_w->height);
+//   	if ((!map_info->wall_n->img) || (!map_info->wall_s->img) ||
+//   		(!map_info->wall_e->img) || (!map_info->wall_w->img))
+//   	{
+//		write(2, "Error map: error texture\n", 25);
+//		exit(1); // добавить функцию ft_exit;
+//	}
+//	map_info->wall_n->addr = mlx_get_data_addr(map_info->wall_n->img, &map_info->wall_n->bits_per_pixel, \
+//							&map_info->wall_n->line_length, &map_info->wall_n->endian);
+//	return (txtr);
 }
 
 // переименовать и переписать??

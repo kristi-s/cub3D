@@ -64,18 +64,27 @@ void	ft_check_resolution(char *line, t_map *map_info)
 	int		y;
 
 	i = 0;
-	if ((map_info->resolution_x = ft_atoi(line)) <= 0)
-		return;
+	map_info->resolution_x = ft_atoi(line);
 	while (ft_isspace(line[i]))
 		i++;
 	while (ft_isdigit(line[i]))
 		i++;
-	if ((map_info->resolution_y = ft_atoi(&line[i])) <= 0)
-		return;
-	// проверять не привышает ли разрешение экрана
+	map_info->resolution_y = ft_atoi(&line[i]);
 	mlx_get_screen_size(map_info->mlx, &x, &y);
+	if ((map_info->resolution_x <= 0) || (map_info->resolution_y <= 0) ||
+			(map_info->resolution_x > x) || (map_info->resolution_y > y))
+	{
+		map_info->resolution_x = x;
+		map_info->resolution_y = y;
+	}
 	printf("res_x = %d  res_y = %d \n", map_info->resolution_x, map_info->resolution_y);
 	printf("x = %d  y = %d \n", x, y);
+
+	map_info->mlx = mlx_init();
+	map_info->win = mlx_new_window(map_info->mlx, map_info->resolution_x, map_info->resolution_y, map_info->file);
+	map_info->img = mlx_new_image(map_info->mlx, map_info->resolution_x, map_info->resolution_y);
+	map_info->addr = mlx_get_data_addr(map_info->img, &map_info->bits_per_pixel, &map_info->line_length, &map_info->endian);
+
 }
 
 // получаем цвет
@@ -114,7 +123,6 @@ void 	ft_get_color(char *line, t_map *map_info)
 		map_info->floor_color = ft_create_trgb_color(0, red, green, blue);
 	if (line[0] == 'C')
 		map_info->ceilling_color = ft_create_trgb_color(0, red, green, blue);
-	return;
 }
 
 // как обрабатывать тут ошибки
@@ -122,20 +130,83 @@ int		ft_check_texture(char *line, t_map *map_info)
 {
 	int 	i;
 	int		len;
+	char	*ptr;
+	char	**adr;
 
 	i = 0;
 	// проверять если данная текстура (N,S,W,E) уже заполнена, то выходить с ошибкой
-	while (line[i] != ' ')
-		i++;
-	while (ft_isprint(line[i]))
+	if ((line[i] == 'N' && map_info->north_txtr != NULL) ||
+			(line[i] == 'S' && line[i + 1] == 'O' && map_info->south_txtr != NULL) ||
+			(line[i] == 'W' && map_info->west_txtr != NULL) ||
+			(line[i] == 'E' && map_info->east_txtr != NULL) ||
+			(line[i] == 'S' && line[i + 1] == ' ' && map_info->sprite_txtr != NULL))
 	{
+		write(2, "Error map: reinitialization texture\n", 35);
+		exit(1);
+	}
+	if (line[i] == 'N' && line[i + 1] == 'O')
+		adr = &map_info->north_txtr;
+	else if (line[i] == 'S' && line[i + 1] == 'O')
+		adr = &map_info->south_txtr;
+	else if (line[i] == 'W' && line[i + 1] == 'E')
+		adr = &map_info->west_txtr;
+	else if (line[i] == 'E' && line[i + 1] == 'A')
+		adr = &map_info->east_txtr;
+	else if (line[i] == 'S' && line[i + 1] == ' ')
+		adr = &map_info->sprite_txtr;
+	else
+	{
+		write(2, "Error map: error texture\n", 25);
+		exit(1);
+	}
+	i++;
+	if (line[i] != ' ')
+		i++;
+	while (ft_isspace(line[i]))
+		i++;
+	len = 0;
+	while (line[i] >= 33 && line[i] <= 126) {
 		len++;  //?? нужна ли длина строки
-		i++;// отсечь если есть пробелы в конце
+		i++;
+	}
+//	можно объединить две ошибки
+
+//	if (!(*adr = malloc(len + 1)))
+//		ft_puterror_mem();
+//	printf("%p\n", map_info->north_txtr);
+//	if (len == 0)
+//	{
+//		write(2, "Error map: error texture\n", 25);
+//		exit(1);
+//	}
+//	**(adr + len) = '\0';
+//	i--;
+//	while (len-- > 1)
+//	{
+//		**(adr + len) = line[i];
+//		i--;
+//	}
+
+	if (!(ptr = malloc(len + 1)))
+		ft_puterror_mem();
+	if (len == 0)
+	{
+		write(2, "Error map: error texture\n", 25);
+		exit(1);
+	}
+	ptr[len] = '\0';
+	i--;
+	while (len-- > 0)
+	{
+		ptr[len] = line[i];
+		i--;
+	}
+	*adr = ptr;
 		// проверить что можно пройти и получить xpm
 //		перевести xpm в img и хранить указатель на текстуру
 // если путь не верный, то возвращать ошибку
+//	printf("%s\n", ptr);
 
-	}
 }
 
 // нужно ли что-то возвращать?? если нет, то сделать void
@@ -217,13 +288,13 @@ void	ft_init_info(t_map	*map_info)
 }
 
 
-void	ft_read_map(char *file, t_map *map_info)
+void	ft_read_map(t_map *map_info)
 {
 	int		fd;
 	int		n;
 	char 	*line;
 
-	if ((fd = open(file, 0)) == -1)
+	if ((fd = open(map_info->file, 0)) == -1)
 		return (ft_puterror()); // ошибка чтения карты исп perror, strerror ?
 	while ((n = ft_read_line(fd, &line)) > 0)
 		ft_parse_line(line, map_info);
@@ -237,10 +308,11 @@ void	ft_read_map(char *file, t_map *map_info)
 //			или выходить по 	exit(1)
 		ft_parse_line(line, map_info);
 		ft_create_arr_map(map_info); // поставить проверки?
-		map_info->wall_n = ft_paint_texture(WAY_T_N, map_info->mlx); //(char *file, void *ptr_mlx)
-		map_info->wall_s = ft_paint_texture(WAY_T_S, map_info->mlx);
-		map_info->wall_e = ft_paint_texture(WAY_T_E, map_info->mlx);
-		map_info->wall_w = ft_paint_texture(WAY_T_W, map_info->mlx);
+		ft_paint_texture(map_info);
+//		map_info->wall_n = ft_paint_texture(WAY_T_N, map_info->mlx); //(char *file, void *ptr_mlx)
+//		map_info->wall_s = ft_paint_texture(WAY_T_S, map_info->mlx);
+//		map_info->wall_e = ft_paint_texture(WAY_T_E, map_info->mlx);
+//		map_info->wall_w = ft_paint_texture(WAY_T_W, map_info->mlx);
 		ft_render(map_info);
 
 	}

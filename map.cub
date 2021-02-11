@@ -1,10 +1,13 @@
-R 1600 1200
+R 800 600
 
-NO ./path_to_the_north_texture
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
-S ./path_to_the_sprite_texture
+
+
+
+NO ../txtr6.xpm
+SO ../pink.xpm
+WE ../blue.xpm
+EA ../green2.xpm
+S ../elexir.xpm
 
 F 040,000,080
 C 100,150,255

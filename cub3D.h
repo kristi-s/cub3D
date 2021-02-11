@@ -62,8 +62,9 @@ typedef struct	s_data {
 
 typedef struct		s_map
 {
-	unsigned int 	resolution_x;
-	unsigned int 	resolution_y;
+	char 			*file;
+	int 			resolution_x;
+	int 			resolution_y;
 	char			*north_txtr;
 	char			*south_txtr;
 	char			*west_txtr;
@@ -82,6 +83,7 @@ typedef struct		s_map
 	t_data			*wall_s;
 	t_data			*wall_e;
 	t_data			*wall_w;
+	t_data			*sprite;
 	int 		color_wall;
 	int 		key[6][2];
 
@@ -96,9 +98,8 @@ typedef struct		s_map
 // key[8]: 0 = A; 1 = S; 2 = D; 3 = W; 4 = left; 5 = right; 6 = up; down = 7;
 
 int		ft_isspace(char c);
-//void	ft_read_map(char *file);
 void 	my_mlx_pixel_put(t_map *map_info, int x, int y, int color);
-void	ft_read_map(char *file, t_map *map_info);
+void	ft_read_map(t_map *map_info);
 void	ft_init_info(t_map	*map_info);
 void 	draw_ver_line(t_map *map_info, int x, int y0, int y1);
 int		ft_copy_map(char *line, t_map *map_info);
@@ -111,7 +112,8 @@ int 	ft_key_release(int keycode, t_map *map_info);
 int     ft_render_next(t_map *map_info);
 void 	ft_draw(t_map *map_info);
 void 	ft_render(t_map *map_info);
-t_data		*ft_paint_texture(char *file, void *ptr_mlx);
+//t_data		*ft_paint_texture(char *file, void *ptr_mlx);
+void		ft_paint_texture(t_map *map_info);
 void 	draw_txtr(t_map *map_info, t_data *txtr, int x, int y0, int y1, double wall_x, int lineHeight);
 void 	ft_draw_floor_ceiling(t_map *map_info, int x, int y1, int y2);
 

@@ -58,21 +58,21 @@ int		main(int argc, char **argv)
 			//parse
 			//init
 		ft_init_info(map_info);
-		map_info->resolution_y = 1200;
-		map_info->resolution_x = 1600;
+//		map_info->resolution_y = 1440;
+//		map_info->resolution_x = 2560;
 //перенести все в др место
-		map_info->mlx = mlx_init();
-		map_info->win = mlx_new_window(map_info->mlx, map_info->resolution_x, map_info->resolution_y, argv[1]);
-		map_info->img = mlx_new_image(map_info->mlx, map_info->resolution_x, map_info->resolution_y);
-		map_info->addr = mlx_get_data_addr(map_info->img, &map_info->bits_per_pixel, &map_info->line_length, &map_info->endian);
+//		map_info->mlx = mlx_init();
+//		map_info->win = mlx_new_window(map_info->mlx, map_info->resolution_x, map_info->resolution_y, argv[1]);
+//		map_info->img = mlx_new_image(map_info->mlx, map_info->resolution_x, map_info->resolution_y);
+//		map_info->addr = mlx_get_data_addr(map_info->img, &map_info->bits_per_pixel, &map_info->line_length, &map_info->endian);
 
 //		my_mlx_pixel_put(map_info, 10, 10, 0xFF0000);
 //		mlx_put_image_to_window(map_info->mlx, map_info->win, map_info->img, 0, 0);
 //
 //		mlx_loop(map_info->mlx);
 
-
-		ft_read_map(argv[1], map_info);
+		map_info->file = argv[1];
+		ft_read_map(map_info);
 
 
 //		void *mlx;

@@ -16,6 +16,14 @@ unistd.h
 
 ../minilibx_mms_20200219/mlx.h
 
+/Users/droslyn/cub3D/action.c
+cub3D.h
+/Users/droslyn/cub3D/cub3D.h
+
+/Users/droslyn/cub3D/begin.c
+cub3D.h
+/Users/droslyn/cub3D/cub3D.h
+
 /Users/droslyn/cub3D/cub3D.h
 stdlib.h
 -
@@ -34,11 +42,31 @@ mlx.h
 libft.h
 /Users/droslyn/cub3D/libft.h
 
+/Users/droslyn/cub3D/ft_copy_map.c
+cub3D.h
+/Users/droslyn/cub3D/cub3D.h
+
+/Users/droslyn/cub3D/ft_error.c
+cub3D.h
+/Users/droslyn/cub3D/cub3D.h
+
+/Users/droslyn/cub3D/main.c
+cub3D.h
+/Users/droslyn/cub3D/cub3D.h
+
 /Users/droslyn/cub3D/mlx.h
+
+/Users/droslyn/cub3D/paint_texture.c
+cub3D.h
+/Users/droslyn/cub3D/cub3D.h
 
 /Users/droslyn/cub3D/read_map.c
 minilibx_mms_20200219/mlx.h
 -
+cub3D.h
+/Users/droslyn/cub3D/cub3D.h
+
+/Users/droslyn/cub3D/valid_map.c
 cub3D.h
 /Users/droslyn/cub3D/cub3D.h
 
