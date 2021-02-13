@@ -68,10 +68,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/kristinasmirnova/21_school/cub3D
+CMAKE_SOURCE_DIR = /Users/droslyn/cub3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/kristinasmirnova/21_school/cub3D/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/droslyn/cub3D/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles /Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/droslyn/cub3D/cmake-build-debug/CMakeFiles /Users/droslyn/cub3D/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/droslyn/cub3D/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -1520,6 +1520,33 @@ read_map.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/read_map.c.s
 .PHONY : read_map.c.s
 
+sprites.o: sprites.c.o
+
+.PHONY : sprites.o
+
+# target to build an object file
+sprites.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/sprites.c.o
+.PHONY : sprites.c.o
+
+sprites.i: sprites.c.i
+
+.PHONY : sprites.i
+
+# target to preprocess a source file
+sprites.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/sprites.c.i
+.PHONY : sprites.c.i
+
+sprites.s: sprites.c.s
+
+.PHONY : sprites.s
+
+# target to generate assembly for a file
+sprites.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/sprites.c.s
+.PHONY : sprites.c.s
+
 valid_map.o: valid_map.c.o
 
 .PHONY : valid_map.o
@@ -1709,6 +1736,9 @@ help:
 	@echo "... read_map.o"
 	@echo "... read_map.i"
 	@echo "... read_map.s"
+	@echo "... sprites.o"
+	@echo "... sprites.i"
+	@echo "... sprites.s"
 	@echo "... valid_map.o"
 	@echo "... valid_map.i"
 	@echo "... valid_map.s"

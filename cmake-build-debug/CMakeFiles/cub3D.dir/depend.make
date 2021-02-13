@@ -159,6 +159,11 @@ CMakeFiles/cub3D.dir/read_map.c.o: ../cub3D.h
 CMakeFiles/cub3D.dir/read_map.c.o: ../mlx.h
 CMakeFiles/cub3D.dir/read_map.c.o: ../read_map.c
 
+CMakeFiles/cub3D.dir/sprites.c.o: ../libft/libft.h
+CMakeFiles/cub3D.dir/sprites.c.o: ../cub3D.h
+CMakeFiles/cub3D.dir/sprites.c.o: ../mlx.h
+CMakeFiles/cub3D.dir/sprites.c.o: ../sprites.c
+
 CMakeFiles/cub3D.dir/valid_map.c.o: ../libft/libft.h
 CMakeFiles/cub3D.dir/valid_map.c.o: ../cub3D.h
 CMakeFiles/cub3D.dir/valid_map.c.o: ../mlx.h

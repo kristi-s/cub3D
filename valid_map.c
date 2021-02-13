@@ -4,6 +4,10 @@
 //	unsigned int 	max_line_len;
 // char 			*arr_map;
 
+
+// проверить получается ли открыть файлы текстур !!!!!
+
+
 void		ft_valid_map(t_map *map_info)
 {
 	int i;

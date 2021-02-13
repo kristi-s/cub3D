@@ -26,11 +26,7 @@
 #define ROTATION 0.05
 #define FOV	0.66
 
-//убрать def и поменять в инитах и вызове ф-ции
-#define 	WAY_T_N "../txtr6.xpm"
-#define		WAY_T_S "../pink.xpm"
-#define		WAY_T_E "../green2.xpm"
-#define		WAY_T_W "../blue.xpm"
+
 
 // Resolution:
 // id: R // x render size // y render size
@@ -41,6 +37,13 @@
 // Floor color:
 // identifier: F  //  R,G,B colors in range [0,255]: 0, 255, 255
 // Ceilling color: аналогично; id: C;
+
+
+//typedef struct s_sprt {
+//	double	x;
+//	double	y;
+//}			t_sprt;
+
 typedef struct s_cam {
 	double	pos_x;
 	double	pos_y;
@@ -75,6 +78,8 @@ typedef struct		s_map
 	unsigned int	count_line_in_map;
 	unsigned int 	max_line_len;
 	unsigned int 	count_sprites;
+	int				*arr_sprites;
+	double			*z_buff;  // нужен ли тут??
 	t_list			*start_row;
 	t_list 			*last_row;
 	char 			position_player;
@@ -118,11 +123,15 @@ void		ft_paint_texture(t_map *map_info);
 void 	draw_txtr(t_map *map_info, t_data *txtr, int x, int y0, int y1, double wall_x, int lineHeight);
 void 	ft_draw_floor_ceiling(t_map *map_info, int x, int y1, int y2);
 
+
+void	ft_count_sprite(t_map *map_info);
 // ft_valid_map можно сделать воид?
 void	ft_valid_map(t_map *map_info);
 void	ft_puterror(void);
 void	ft_puterror_mem(void);
 //void	ft_puterr_clean(char *arr);
 void	ft_error(char *str_err);
+
+void	ft_sort(double *array_spr, t_map *map_info);
 
 #endif

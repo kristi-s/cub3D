@@ -14,17 +14,11 @@ stdlib.h
 unistd.h
 -
 
-../minilibx_mms_20200219/mlx.h
-
-/Users/kristinasmirnova/21_school/cub3D/action.c
+/Users/droslyn/cub3D/begin.c
 cub3D.h
-/Users/kristinasmirnova/21_school/cub3D/cub3D.h
+/Users/droslyn/cub3D/cub3D.h
 
-/Users/kristinasmirnova/21_school/cub3D/begin.c
-cub3D.h
-/Users/kristinasmirnova/21_school/cub3D/cub3D.h
-
-/Users/kristinasmirnova/21_school/cub3D/cub3D.h
+/Users/droslyn/cub3D/cub3D.h
 stdlib.h
 -
 unistd.h
@@ -38,35 +32,13 @@ fcntl.h
 math.h
 -
 mlx.h
-/Users/kristinasmirnova/21_school/cub3D/mlx.h
+/Users/droslyn/cub3D/mlx.h
 libft.h
-/Users/kristinasmirnova/21_school/cub3D/libft.h
+/Users/droslyn/cub3D/libft.h
 
-/Users/kristinasmirnova/21_school/cub3D/ft_copy_map.c
+/Users/droslyn/cub3D/mlx.h
+
+/Users/droslyn/cub3D/sprites.c
 cub3D.h
-/Users/kristinasmirnova/21_school/cub3D/cub3D.h
-
-/Users/kristinasmirnova/21_school/cub3D/ft_error.c
-cub3D.h
-/Users/kristinasmirnova/21_school/cub3D/cub3D.h
-
-/Users/kristinasmirnova/21_school/cub3D/main.c
-cub3D.h
-/Users/kristinasmirnova/21_school/cub3D/cub3D.h
-
-/Users/kristinasmirnova/21_school/cub3D/mlx.h
-
-/Users/kristinasmirnova/21_school/cub3D/paint_texture.c
-cub3D.h
-/Users/kristinasmirnova/21_school/cub3D/cub3D.h
-
-/Users/kristinasmirnova/21_school/cub3D/read_map.c
-minilibx_mms_20200219/mlx.h
--
-cub3D.h
-/Users/kristinasmirnova/21_school/cub3D/cub3D.h
-
-/Users/kristinasmirnova/21_school/cub3D/valid_map.c
-cub3D.h
-/Users/kristinasmirnova/21_school/cub3D/cub3D.h
+/Users/droslyn/cub3D/cub3D.h
 

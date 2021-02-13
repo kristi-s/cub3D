@@ -138,6 +138,8 @@ void	ft_create_arr_map(t_map *map_info)
 	}
 	ft_valid_map(map_info);
 //	после того как карта завалидирована и посчитано количество спрайтов
+	ft_count_sprite(map_info);
+
 //	для отладки
 	printf("map ok \n");
 //	i = 0;

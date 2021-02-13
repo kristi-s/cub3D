@@ -16,10 +16,8 @@ t_cam	*set_pos_player(unsigned int p_x, unsigned int p_y, char way_player)
 {
 	t_cam *camera;
 	if (!(camera = malloc(sizeof(t_cam))))
-	{
-		ft_puterror_mem();
-		return(NULL); // заменить все на exit???
-	}
+		ft_error("Error memory allocation\n");
+
 
 	camera->dir_x = 0;
 	camera->dir_y = 0;
@@ -128,6 +126,10 @@ void 	ft_draw(t_map *map_info) {
 		else
 			perpWallDist = (mapY - map_info->cam->pos_y + (1 - stepY) / 2) / rayDirY;
 
+//		записывать в массив z_buff значения perpWallDist
+// double ZBuffer[screenWidth];
+		map_info->z_buff[x] = perpWallDist;
+
 		ft_color_wall(side, stepX, stepY, map_info);
 
 		lineHeight = (int) (map_info->resolution_y / perpWallDist);
@@ -158,6 +160,33 @@ void 	ft_draw(t_map *map_info) {
 //			draw_ver_line(map_info, x, drawStart, drawEnd);
 		x++;
 	}
+
+
+//	создаем массив с дистанцией страйтов до игрока
+// переписать в структуру для спрайтов???
+// если спрайтов нет, то ничего не делаем
+	int		spr_oder[map_info->count_sprites];
+	double	spr_dist[map_info->count_sprites];
+	int i = 0;
+	double spr_x;
+	double spr_y;
+
+	while (i < map_info->count_sprites)
+	{
+		spr_oder[i] = i;
+		spr_x = (double)(map_info->arr_sprites[i] % map_info->max_line_len) + 0.5;
+		spr_y = (double)(map_info->arr_sprites[i] / map_info->max_line_len) + 0.5;
+		spr_dist[i] = (pow((map_info->cam->pos_x - spr_x), 2) + pow((map_info->cam->pos_y - spr_y),2));
+
+//		printf("spr x = %f    spr y = %f\n", spr_x, spr_y);
+//		printf("spr_dist = %f\n", spr_dist[i]);
+//		printf("pos x = %f    pos y = %f\n", map_info->cam->pos_x, map_info->cam->pos_y);
+		i++;
+	}
+//map_info->cam->pos_x
+
+//	void	ft_sort(double *array_spr)
+	ft_sort(spr_dist, map_info);
 }
 
 void 	ft_render(t_map *map_info)

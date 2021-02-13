@@ -18,6 +18,11 @@ void 	ft_key_change(int keycode, char status, int key[6][2])
 	int i;
 
 	i = 0;
+	if (keycode == KEY_ESC) {
+//		нужно ли делать эту функцию? или достаточно exit???
+//		mlx_destroy_window(map_info->mlx, map_info->win);
+		exit(0);
+	}
 	while (i < 6)
 	{
 		if (keycode == key[i][1])
@@ -87,7 +92,7 @@ int     ft_render_next(t_map *map_info)
 	// сделать ft_render ???
 	map_info->img = mlx_new_image(map_info->mlx, map_info->resolution_x, map_info->resolution_y);
 	if (!map_info->img)
-		exit(1); // добавить сообщение от ошибке (сделать ft_exit)
+		ft_error("Error: create new image fail\n");
 	map_info->addr = mlx_get_data_addr(map_info->img, &map_info->bits_per_pixel, \
 		&map_info->line_length, &map_info->endian);
 	ft_draw(map_info);
