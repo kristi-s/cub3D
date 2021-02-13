@@ -126,7 +126,7 @@ void 	ft_get_color(char *line, t_map *map_info)
 }
 
 // как обрабатывать тут ошибки
-int		ft_check_texture(char *line, t_map *map_info)
+void		ft_check_texture(char *line, t_map *map_info)
 {
 	int 	i;
 	int		len;
@@ -281,6 +281,7 @@ void	ft_init_info(t_map	*map_info)
 	map_info->ceilling_color = 0;
 	map_info->count_line_in_map = 0;
 	map_info->max_line_len = 0;
+	map_info->count_sprites = 0;
 	map_info->start_row = NULL;
 	map_info->last_row = NULL;
 	map_info->position_player = 0;

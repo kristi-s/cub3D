@@ -4,7 +4,7 @@
 //	unsigned int 	max_line_len;
 // char 			*arr_map;
 
-int		ft_valid_map(t_map *map_info)
+void		ft_valid_map(t_map *map_info)
 {
 	int i;
 
@@ -23,12 +23,11 @@ int		ft_valid_map(t_map *map_info)
 			!(map_info->arr_map[i] == ' ' &&
 					(map_info->arr_map[i + map_info->max_line_len] == '1' ||
 					map_info->arr_map[i + map_info->max_line_len] == ' ')))
-		{
-			write(2, "Error map: map is open\n", 23);
-//удалить printf!!!
-			printf("i = %d\n", i);
-			exit(1);
-		}
+			ft_error("Error map: map is open\n");
+//		{
+//			write(2, "Error map: map is open\n", 23);
+//			exit(1);
+//		}
 		if (map_info->arr_map[i] == ' ')
 			map_info->arr_map[i] = '1';
 		i++;
@@ -75,6 +74,8 @@ int		ft_valid_map(t_map *map_info)
 					exit(1);
 				}
 			}
+			else if (map_info->arr_map[i] == '2')
+				map_info->count_sprites++;
 		}
 		i++;
 	}
@@ -94,5 +95,5 @@ int		ft_valid_map(t_map *map_info)
 			map_info->arr_map[i] = '1';
 		i++;
 	}
-	return (0);
+
 }

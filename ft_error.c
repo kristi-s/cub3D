@@ -22,12 +22,10 @@ void	ft_puterr_clean(char *arr)
 		free(arr);
 }
 
-int ft_error(void *ptr1, void *ptr2)
+void ft_error(char *str_err)
 {
-	if (ptr1 != NULL)
-		free(ptr1);
-	if (ptr2 != NULL)
-		free(ptr2);
-	write(2, "Error map\n", 10);
-	return (-1);
+	size_t len;
+	len = ft_strlen(str_err);
+	write(2, str_err, len);
+	exit(1);
 }

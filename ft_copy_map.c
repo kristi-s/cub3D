@@ -112,7 +112,7 @@ void	ft_create_arr_map(t_map *map_info)
 	map_info->count_line_in_map++;
 	size_arr = map_info->max_line_len * map_info->count_line_in_map;
 	if (!(map_info->arr_map = malloc(sizeof(char) * size_arr)))
-		return(ft_puterror_mem()); // заменить на exit(1);
+		return(ft_puterror_mem());
 
 	count = 0;
 	while (count < map_info->max_line_len)
@@ -137,12 +137,15 @@ void	ft_create_arr_map(t_map *map_info)
 		i = 0;
 	}
 	ft_valid_map(map_info);
+//	после того как карта завалидирована и посчитано количество спрайтов
 //	для отладки
 	printf("map ok \n");
 //	i = 0;
 //	while (i < size_arr)
 //	{
 //		printf("%c|", map_info->arr_map[i]);
+//		if ((i + 1) % map_info->max_line_len == 0)
+//			printf("\n");
 //		i++;
 //	}
 //	printf("\n");

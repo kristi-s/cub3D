@@ -74,6 +74,7 @@ typedef struct		s_map
 	unsigned int 	ceilling_color;
 	unsigned int	count_line_in_map;
 	unsigned int 	max_line_len;
+	unsigned int 	count_sprites;
 	t_list			*start_row;
 	t_list 			*last_row;
 	char 			position_player;
@@ -118,9 +119,10 @@ void 	draw_txtr(t_map *map_info, t_data *txtr, int x, int y0, int y1, double wal
 void 	ft_draw_floor_ceiling(t_map *map_info, int x, int y1, int y2);
 
 // ft_valid_map можно сделать воид?
-int		ft_valid_map(t_map *map_info);
+void	ft_valid_map(t_map *map_info);
 void	ft_puterror(void);
 void	ft_puterror_mem(void);
-void	ft_puterr_clean(char *arr);
-int		ft_error(void *ptr1, void *ptr2);
+//void	ft_puterr_clean(char *arr);
+void	ft_error(char *str_err);
+
 #endif
