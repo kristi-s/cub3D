@@ -44,17 +44,16 @@ void	ft_count_sprite(t_map *map_info)
 
 
 //сортирует от дальнего до ближнего
-void	ft_sort(double *array_spr, t_map *map_info)
+void	ft_sort(double *array_spr, int *n_spr, t_map *map_info)
 {
 	int i;
-//	int count = 0; //удалить !!!! или применить
 	int j = 0;
 	double tmp;
+	int temp_i;
 
 	while(j < map_info->count_sprites - 1)
 	{
 		i = 0;
-//		count = 0; //удалить или применить
 		while (i < map_info->count_sprites - j - 1)
 		{
 			if (array_spr[i] < array_spr[i + 1])
@@ -62,11 +61,12 @@ void	ft_sort(double *array_spr, t_map *map_info)
 				tmp = array_spr[i];
 				array_spr[i] = array_spr[i + 1];
 				array_spr[i + 1] = tmp;
-//				count++; //удалить или применить
+				temp_i = n_spr[i];
+				n_spr[i] = n_spr[i + 1];
+				n_spr[i + 1] = temp_i;
 			}
 			i++;
 		}
-//		printf("count = %d\n", count);
 		j++;
 	}
 

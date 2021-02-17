@@ -185,8 +185,113 @@ void 	ft_draw(t_map *map_info) {
 	}
 //map_info->cam->pos_x
 
-//	void	ft_sort(double *array_spr)
-	ft_sort(spr_dist, map_info);
+//	можно переставлять не spr_oder, а arr_sprites!!!
+// и тогда убрать spr_oder совсем
+	ft_sort(spr_dist, spr_oder, map_info);
+
+//	после сортировки, рисуем спрайты:
+
+//	double spriteX = sprite[spriteOrder[i]].x - posX;
+//      double spriteY = sprite[spriteOrder[i]].y - posY;
+	i = 0;
+	int ind;
+	double invDet;
+	double transformX;
+	double transformY;
+	int spriteScreenX;
+	int spriteHeight;
+	int drawStartY;
+	int drawEndY;
+
+	int spriteWidth;
+	int drawStartX;
+	int drawEndX;
+
+
+	while (i < map_info->count_sprites) {
+		ind = spr_oder[i];
+		spr_x = (double) (map_info->arr_sprites[ind] % map_info->max_line_len) + 0.5 - map_info->cam->pos_x;
+		spr_y = (double) (map_info->arr_sprites[ind] / map_info->max_line_len) + 0.5 - map_info->cam->pos_y;
+
+		invDet = 1.0 / (map_info->cam->plane_x * map_info->cam->dir_y -
+						map_info->cam->dir_x * map_info->cam->plane_y); //required for correct matrix multiplication
+
+		transformX = invDet * (map_info->cam->dir_y * spr_x - map_info->cam->dir_x * spr_y);
+		transformY = invDet * (-map_info->cam->plane_y * spr_x + map_info->cam->plane_x *
+																 spr_y); //this is actually the depth inside the screen, that what Z is in 3D
+
+		spriteScreenX = (int)((map_info->resolution_x / 2) * (1 + transformX / transformY));
+
+		//calculate height of the sprite on screen
+		spriteHeight = abs((int)(map_info->resolution_y /
+								  (transformY))); //using 'transformY' instead of the real distance prevents fisheye
+		//calculate lowest and highest pixel to fill in current stripe
+		drawStartY = -spriteHeight / 2 + map_info->resolution_y / 2;
+		if (drawStartY < 0)
+			drawStartY = 0;
+		drawEndY = spriteHeight / 2 + map_info->resolution_y / 2;
+		if (drawEndY >= map_info->resolution_y)
+			drawEndY = map_info->resolution_y - 1;
+
+		//calculate width of the sprite
+		spriteWidth = abs((int) (map_info->resolution_y / (transformY)));
+		drawStartX = -spriteWidth / 2 + spriteScreenX;
+		if (drawStartX < 0)
+			drawStartX = 0;
+		drawEndX = spriteWidth / 2 + spriteScreenX;
+		if (drawEndX >= map_info->resolution_x)
+			drawEndX = map_info->resolution_x - 1;
+		i++;
+		if (drawStartX >= drawEndX)
+			continue;
+
+		int stripe;
+		int texX;
+		int texWidth = 64; //размер текстуры
+		int texHeight = 64;
+		//loop through every vertical stripe of the sprite on screen
+		stripe = drawStartX;
+		int clr;
+		int d;
+		int texY;
+		int y;
+		while (stripe < drawEndX) {
+			texX = (int) (256 * (stripe - (-spriteWidth / 2 + spriteScreenX)) * texWidth / spriteWidth) / 256;
+			//the conditions in the if are:
+			//1) it's in front of camera plane so you don't see things behind you
+			//2) it's on the screen (left)
+			//3) it's on the screen (right)
+			//4) ZBuffer, with perpendicular distance
+			if (transformY > 0 && stripe > 0 && stripe < map_info->resolution_x &&
+				transformY < map_info->z_buff[stripe]) {
+				for (y = drawStartY; y < drawEndY; y++) //for every pixel of the current stripe
+				{
+					d = (y) * 256 - map_info->resolution_y * 128 +
+						spriteHeight * 128; //256 and 128 factors to avoid floats
+					texY = ((d * texHeight) / spriteHeight) / 256;
+//					clr = texture[sprite[spriteOrder[i]].texture][texWidth * texY + texX]; //get current color from the texture
+					clr = get_pixel(map_info->sprite, texX, texY);
+//		my_mlx_pixel_put(map_info, x, y0, \
+//					add_shade(0.2, texture_pixel));
+					if ((clr & 0x00FFFFFF) != 0)
+						my_mlx_pixel_put(map_info, stripe, y, add_shade(0.2, clr));
+//						buffer[y][stripe] = clr; //paint pixel if it isn't black, black is the invisible color
+				}
+			}
+			stripe++;
+		}
+
+	}
+
+// для отладки
+	i = 0;
+	printf("after sort \n");
+	while (i < map_info->count_sprites) {
+		printf("%f | ", spr_dist[i]);
+		printf("%d | ", spr_oder[i]);
+		i++;
+	}
+
 }
 
 void 	ft_render(t_map *map_info)

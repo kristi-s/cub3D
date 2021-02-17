@@ -132,6 +132,10 @@ void	ft_puterror_mem(void);
 //void	ft_puterr_clean(char *arr);
 void	ft_error(char *str_err);
 
-void	ft_sort(double *array_spr, t_map *map_info);
+void	ft_sort(double *array_spr, int *n_spr, t_map *map_info);
+
+// переписать!!!
+int			get_pixel(t_data *txtr, int x, int y);
+int			add_shade(double distance, int color);
 
 #endif

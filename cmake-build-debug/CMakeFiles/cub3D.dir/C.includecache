@@ -14,11 +14,11 @@ stdlib.h
 unistd.h
 -
 
-/Users/droslyn/cub3D/begin.c
+/Users/kristinasmirnova/21_school/cub3D/begin.c
 cub3D.h
-/Users/droslyn/cub3D/cub3D.h
+/Users/kristinasmirnova/21_school/cub3D/cub3D.h
 
-/Users/droslyn/cub3D/cub3D.h
+/Users/kristinasmirnova/21_school/cub3D/cub3D.h
 stdlib.h
 -
 unistd.h
@@ -32,13 +32,9 @@ fcntl.h
 math.h
 -
 mlx.h
-/Users/droslyn/cub3D/mlx.h
+/Users/kristinasmirnova/21_school/cub3D/mlx.h
 libft.h
-/Users/droslyn/cub3D/libft.h
+/Users/kristinasmirnova/21_school/cub3D/libft.h
 
-/Users/droslyn/cub3D/mlx.h
-
-/Users/droslyn/cub3D/sprites.c
-cub3D.h
-/Users/droslyn/cub3D/cub3D.h
+/Users/kristinasmirnova/21_school/cub3D/mlx.h
 
