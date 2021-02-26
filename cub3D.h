@@ -39,10 +39,22 @@
 // Ceilling color: аналогично; id: C;
 
 
-//typedef struct s_sprt {
-//	double	x;
-//	double	y;
-//}			t_sprt;
+typedef struct s_sprt {
+	double	x;
+	double	y;
+	double	inv_det;
+	double	transform_x;
+	double	transform_y;
+	int		sprite_screen_x;
+	int		sprite_height;
+	int		draw_start_y;
+	int		draw_end_y;
+	int		sprite_width;
+	int		draw_start_x;
+	int		draw_end_x;
+	int		txtr_x;
+	int		txtr_y;
+}			t_sprt;
 
 typedef struct s_cam {
 	double	pos_x;
@@ -51,6 +63,24 @@ typedef struct s_cam {
 	double	dir_y;
 	double 	plane_x;
 	double 	plane_y;
+
+	double camera_x;
+	double ray_dir_x;
+	double ray_dir_y;
+	int		map_x;
+	int		map_y;
+	double delta_dist_x;
+	double delta_dist_y;
+	double side_dist_x;
+	double side_dist_y;
+	double perp_wall_dist;
+	int step_x;
+	int step_y;
+	int side;
+	int line_height;
+	int draw_start;
+	int draw_end;
+	double wall_x;
 }			t_cam;
 
 typedef struct	s_data {
@@ -66,31 +96,31 @@ typedef struct	s_data {
 typedef struct		s_map
 {
 	char 			*file;
-	int 			resolution_x;
-	int 			resolution_y;
+	int 			w; // resolution x
+	int 			h; // resolution y
 	char			*north_txtr;
 	char			*south_txtr;
 	char			*west_txtr;
 	char			*east_txtr;
 	char			*sprite_txtr;
 	unsigned int 	floor_color;
-	unsigned int 	ceilling_color;
-	unsigned int	count_line_in_map;
+	unsigned int 	ceiling_color;
+	unsigned int	count_line;
 	unsigned int 	max_line_len;
 	unsigned int 	count_sprites;
-	int				*arr_sprites;
+	int				*arr_sp;
 	double			*z_buff;  // нужен ли тут??
 	t_list			*start_row;
 	t_list 			*last_row;
-	char 			position_player;
+	char 			pos_pl;
 	char 			*arr_map;
 	t_cam			*cam;
 	t_data			*wall_n;
 	t_data			*wall_s;
 	t_data			*wall_e;
 	t_data			*wall_w;
-	t_data			*sprite;
-	int 		color_wall;
+	t_data			*sp_img;
+	int 		color_wall; //?
 	int 		key[6][2];
 
 	void    *mlx;
@@ -100,39 +130,42 @@ typedef struct		s_map
 	int 	bits_per_pixel; //32 bit
 	int 	line_length; //width
 	int 	endian;
+
+	int		*spr_oder;
+	double	*spr_dist;
+	t_sprt	*sprites;
 }					t_map;
 // key[8]: 0 = A; 1 = S; 2 = D; 3 = W; 4 = left; 5 = right; 6 = up; down = 7;
 
 int		ft_isspace(char c);
-void 	my_mlx_pixel_put(t_map *map_info, int x, int y, int color);
-void	ft_read_map(t_map *map_info);
-void	ft_init_info(t_map	*map_info);
-void 	draw_ver_line(t_map *map_info, int x, int y0, int y1);
-int		ft_copy_map(char *line, t_map *map_info);
-int 	ft_contents_of_line(char *line, t_map *map_info, char *content);
-void	ft_create_arr_map(t_map *map_info);
+void 	my_mlx_pixel_put(t_map *info, int x, int y, int color);
+void	ft_read_map(t_map *info);
+void	ft_init_info(t_map	*info);
+//void 	draw_ver_line(t_map *info, int x, int y0, int y1);
+void		ft_copy_map(char *line, t_map *info);
+//int 	ft_contents_of_line(char *line, t_map *info, char *content);
+void	ft_create_arr_map(t_map *info);
 t_cam 	*set_pos_player(unsigned int p_x, unsigned int p_y, char way_player); ///?????
-int 	ft_close(int keycode, t_map *map_info);
-int 	ft_key_press(int keycode, t_map *map_info);
-int 	ft_key_release(int keycode, t_map *map_info);
-int     ft_render_next(t_map *map_info);
-void 	ft_draw(t_map *map_info);
-void 	ft_render(t_map *map_info);
+int 	ft_close(int keycode, t_map *info);
+int 	ft_key_press(int keycode, t_map *info);
+int 	ft_key_release(int keycode, t_map *info);
+int     ft_render_next(t_map *info);
+void 	ft_draw(t_map *info);
+void 	ft_render(t_map *info);
 //t_data		*ft_paint_texture(char *file, void *ptr_mlx);
-void		ft_paint_texture(t_map *map_info);
-void 	draw_txtr(t_map *map_info, t_data *txtr, int x, int y0, int y1, double wall_x, int lineHeight);
-void 	ft_draw_floor_ceiling(t_map *map_info, int x, int y1, int y2);
+void		ft_paint_texture(t_map *info);
+void 	draw_txtr(t_map *info, t_data *txtr, int x, t_cam *cam);
+void 	ft_draw_floor_ceiling(t_map *info, int x, int y1, int y2);
 
 
-void	ft_count_sprite(t_map *map_info);
-// ft_valid_map можно сделать воид?
-void	ft_valid_map(t_map *map_info);
-void	ft_puterror(void);
-void	ft_puterror_mem(void);
-//void	ft_puterr_clean(char *arr);
+void	ft_count_sprite(t_map *info);
+
+void	ft_valid_map(t_map *info);
+
+//void	ft_puterror_mem(void);
 void	ft_error(char *str_err);
 
-void	ft_sort(double *array_spr, int *n_spr, t_map *map_info);
+void	ft_sort(t_map *info);
 
 // переписать!!!
 int			get_pixel(t_data *txtr, int x, int y);

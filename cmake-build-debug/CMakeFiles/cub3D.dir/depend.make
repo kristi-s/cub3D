@@ -11,6 +11,11 @@ CMakeFiles/cub3D.dir/begin.c.o: ../begin.c
 CMakeFiles/cub3D.dir/begin.c.o: ../cub3D.h
 CMakeFiles/cub3D.dir/begin.c.o: ../mlx.h
 
+CMakeFiles/cub3D.dir/draw.c.o: ../libft/libft.h
+CMakeFiles/cub3D.dir/draw.c.o: ../cub3D.h
+CMakeFiles/cub3D.dir/draw.c.o: ../draw.c
+CMakeFiles/cub3D.dir/draw.c.o: ../mlx.h
+
 CMakeFiles/cub3D.dir/ft_copy_map.c.o: ../libft/libft.h
 CMakeFiles/cub3D.dir/ft_copy_map.c.o: ../cub3D.h
 CMakeFiles/cub3D.dir/ft_copy_map.c.o: ../ft_copy_map.c
@@ -20,8 +25,6 @@ CMakeFiles/cub3D.dir/ft_error.c.o: ../libft/libft.h
 CMakeFiles/cub3D.dir/ft_error.c.o: ../cub3D.h
 CMakeFiles/cub3D.dir/ft_error.c.o: ../ft_error.c
 CMakeFiles/cub3D.dir/ft_error.c.o: ../mlx.h
-
-CMakeFiles/cub3D.dir/ft_raycasting.c.o: ../ft_raycasting.c
 
 CMakeFiles/cub3D.dir/libft/ft_atoi.c.o: ../libft/ft_atoi.c
 
@@ -154,7 +157,6 @@ CMakeFiles/cub3D.dir/paint_texture.c.o: ../mlx.h
 CMakeFiles/cub3D.dir/paint_texture.c.o: ../paint_texture.c
 
 CMakeFiles/cub3D.dir/read_map.c.o: ../libft/libft.h
-CMakeFiles/cub3D.dir/read_map.c.o: ../minilibx_mms_20200219/mlx.h
 CMakeFiles/cub3D.dir/read_map.c.o: ../cub3D.h
 CMakeFiles/cub3D.dir/read_map.c.o: ../mlx.h
 CMakeFiles/cub3D.dir/read_map.c.o: ../read_map.c

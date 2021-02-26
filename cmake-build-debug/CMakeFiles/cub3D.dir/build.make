@@ -662,9 +662,22 @@ CMakeFiles/cub3D.dir/begin.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cub3D.dir/begin.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kristinasmirnova/21_school/cub3D/begin.c -o CMakeFiles/cub3D.dir/begin.c.s
 
+CMakeFiles/cub3D.dir/draw.c.o: CMakeFiles/cub3D.dir/flags.make
+CMakeFiles/cub3D.dir/draw.c.o: ../draw.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/cub3D.dir/draw.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/draw.c.o   -c /Users/kristinasmirnova/21_school/cub3D/draw.c
+
+CMakeFiles/cub3D.dir/draw.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cub3D.dir/draw.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/kristinasmirnova/21_school/cub3D/draw.c > CMakeFiles/cub3D.dir/draw.c.i
+
+CMakeFiles/cub3D.dir/draw.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cub3D.dir/draw.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kristinasmirnova/21_school/cub3D/draw.c -o CMakeFiles/cub3D.dir/draw.c.s
+
 CMakeFiles/cub3D.dir/ft_copy_map.c.o: CMakeFiles/cub3D.dir/flags.make
 CMakeFiles/cub3D.dir/ft_copy_map.c.o: ../ft_copy_map.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/cub3D.dir/ft_copy_map.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/cub3D.dir/ft_copy_map.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/ft_copy_map.c.o   -c /Users/kristinasmirnova/21_school/cub3D/ft_copy_map.c
 
 CMakeFiles/cub3D.dir/ft_copy_map.c.i: cmake_force
@@ -677,7 +690,7 @@ CMakeFiles/cub3D.dir/ft_copy_map.c.s: cmake_force
 
 CMakeFiles/cub3D.dir/ft_error.c.o: CMakeFiles/cub3D.dir/flags.make
 CMakeFiles/cub3D.dir/ft_error.c.o: ../ft_error.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/cub3D.dir/ft_error.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/cub3D.dir/ft_error.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/ft_error.c.o   -c /Users/kristinasmirnova/21_school/cub3D/ft_error.c
 
 CMakeFiles/cub3D.dir/ft_error.c.i: cmake_force
@@ -687,19 +700,6 @@ CMakeFiles/cub3D.dir/ft_error.c.i: cmake_force
 CMakeFiles/cub3D.dir/ft_error.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cub3D.dir/ft_error.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kristinasmirnova/21_school/cub3D/ft_error.c -o CMakeFiles/cub3D.dir/ft_error.c.s
-
-CMakeFiles/cub3D.dir/ft_raycasting.c.o: CMakeFiles/cub3D.dir/flags.make
-CMakeFiles/cub3D.dir/ft_raycasting.c.o: ../ft_raycasting.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/cub3D.dir/ft_raycasting.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/ft_raycasting.c.o   -c /Users/kristinasmirnova/21_school/cub3D/ft_raycasting.c
-
-CMakeFiles/cub3D.dir/ft_raycasting.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cub3D.dir/ft_raycasting.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/kristinasmirnova/21_school/cub3D/ft_raycasting.c > CMakeFiles/cub3D.dir/ft_raycasting.c.i
-
-CMakeFiles/cub3D.dir/ft_raycasting.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cub3D.dir/ft_raycasting.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kristinasmirnova/21_school/cub3D/ft_raycasting.c -o CMakeFiles/cub3D.dir/ft_raycasting.c.s
 
 CMakeFiles/cub3D.dir/main.c.o: CMakeFiles/cub3D.dir/flags.make
 CMakeFiles/cub3D.dir/main.c.o: ../main.c
@@ -813,9 +813,9 @@ cub3D_OBJECTS = \
 "CMakeFiles/cub3D.dir/libft/ft_toupper.c.o" \
 "CMakeFiles/cub3D.dir/action.c.o" \
 "CMakeFiles/cub3D.dir/begin.c.o" \
+"CMakeFiles/cub3D.dir/draw.c.o" \
 "CMakeFiles/cub3D.dir/ft_copy_map.c.o" \
 "CMakeFiles/cub3D.dir/ft_error.c.o" \
-"CMakeFiles/cub3D.dir/ft_raycasting.c.o" \
 "CMakeFiles/cub3D.dir/main.c.o" \
 "CMakeFiles/cub3D.dir/paint_texture.c.o" \
 "CMakeFiles/cub3D.dir/read_map.c.o" \
@@ -870,9 +870,9 @@ cub3D: CMakeFiles/cub3D.dir/libft/ft_tolower.c.o
 cub3D: CMakeFiles/cub3D.dir/libft/ft_toupper.c.o
 cub3D: CMakeFiles/cub3D.dir/action.c.o
 cub3D: CMakeFiles/cub3D.dir/begin.c.o
+cub3D: CMakeFiles/cub3D.dir/draw.c.o
 cub3D: CMakeFiles/cub3D.dir/ft_copy_map.c.o
 cub3D: CMakeFiles/cub3D.dir/ft_error.c.o
-cub3D: CMakeFiles/cub3D.dir/ft_raycasting.c.o
 cub3D: CMakeFiles/cub3D.dir/main.c.o
 cub3D: CMakeFiles/cub3D.dir/paint_texture.c.o
 cub3D: CMakeFiles/cub3D.dir/read_map.c.o

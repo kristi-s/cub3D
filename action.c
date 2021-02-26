@@ -3,12 +3,12 @@
 void 	ft_turn(t_cam *cam, int way);
 void 	ft_move(t_cam *cam, char *arr_map, unsigned int size, int way);
 
-int 	ft_close(int keycode, t_map *map_info)
+int 	ft_close(int keycode, t_map *info)
 {
 //	printf("ft_close: keycode = %d\n", keycode);
 	if (keycode != KEY_ESC)
 		return (0);
-	mlx_destroy_window(map_info->mlx, map_info->win);
+	mlx_destroy_window(info->mlx, info->win);
 	exit(0);
 }
 
@@ -48,28 +48,28 @@ void 	ft_key_change(int keycode, char status, int key[6][2])
 //		key[5][0] = status;
 }
 
-int 	ft_key_press(int keycode, t_map *map_info)
+int 	ft_key_press(int keycode, t_map *info)
 {
-	ft_key_change(keycode, 1, map_info->key);
+	ft_key_change(keycode, 1, info->key);
 	return (0);
 }
 
-int 	ft_key_release(int keycode, t_map *map_info)
+int 	ft_key_release(int keycode, t_map *info)
 {
-	ft_key_change(keycode, 0, map_info->key);
+	ft_key_change(keycode, 0, info->key);
 	return (0);
 }
 
-void 	ft_choose_action(int i, t_map *map_info)
+void 	ft_choose_action(int i, t_map *info)
 {
 	while(i < 6)
 	{
-		if (map_info->key[i][0] == 1)
+		if (info->key[i][0] == 1)
 		{
 			if (i <= 3)
-				ft_move(map_info->cam, map_info->arr_map, map_info->max_line_len, map_info->key[i][1]);
+				ft_move(info->cam, info->arr_map, info->max_line_len, info->key[i][1]);
 			else
-				ft_turn(map_info->cam, map_info->key[i][1]);
+				ft_turn(info->cam, info->key[i][1]);
 
 		}
 		i++;
@@ -77,27 +77,27 @@ void 	ft_choose_action(int i, t_map *map_info)
 }
 
 
-int     ft_render_next(t_map *map_info)
+int     ft_render_next(t_map *info)
 {
 	int i;
 
 	i = 0;
-	while (i < 6 && map_info->key[i][0] == 0)
+	while (i < 6 && info->key[i][0] == 0)
 		i++;
 	if (i == 6)
 		return (0);
-	mlx_do_sync(map_info->mlx);
-	ft_choose_action(i, map_info);
+	mlx_do_sync(info->mlx);
+	ft_choose_action(i, info);
 
 	// сделать ft_render ???
-	map_info->img = mlx_new_image(map_info->mlx, map_info->resolution_x, map_info->resolution_y);
-	if (!map_info->img)
+	info->img = mlx_new_image(info->mlx, info->w, info->h);
+	if (!info->img)
 		ft_error("Error: create new image fail\n");
-	map_info->addr = mlx_get_data_addr(map_info->img, &map_info->bits_per_pixel, \
-		&map_info->line_length, &map_info->endian);
-	ft_draw(map_info);
-	mlx_put_image_to_window(map_info->mlx, map_info->win, map_info->img, 0, 0);
-	mlx_destroy_image(map_info->mlx, map_info->img);
+	info->addr = mlx_get_data_addr(info->img, &info->bits_per_pixel, \
+		&info->line_length, &info->endian);
+	ft_draw(info);
+	mlx_put_image_to_window(info->mlx, info->win, info->img, 0, 0);
+	mlx_destroy_image(info->mlx, info->img);
 	return (0);
 }
 

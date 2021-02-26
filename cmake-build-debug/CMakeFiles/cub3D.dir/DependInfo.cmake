@@ -6,9 +6,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/kristinasmirnova/21_school/cub3D/action.c" "/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles/cub3D.dir/action.c.o"
   "/Users/kristinasmirnova/21_school/cub3D/begin.c" "/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles/cub3D.dir/begin.c.o"
+  "/Users/kristinasmirnova/21_school/cub3D/draw.c" "/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles/cub3D.dir/draw.c.o"
   "/Users/kristinasmirnova/21_school/cub3D/ft_copy_map.c" "/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles/cub3D.dir/ft_copy_map.c.o"
   "/Users/kristinasmirnova/21_school/cub3D/ft_error.c" "/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles/cub3D.dir/ft_error.c.o"
-  "/Users/kristinasmirnova/21_school/cub3D/ft_raycasting.c" "/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles/cub3D.dir/ft_raycasting.c.o"
   "/Users/kristinasmirnova/21_school/cub3D/libft/ft_atoi.c" "/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles/cub3D.dir/libft/ft_atoi.c.o"
   "/Users/kristinasmirnova/21_school/cub3D/libft/ft_bzero.c" "/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles/cub3D.dir/libft/ft_bzero.c.o"
   "/Users/kristinasmirnova/21_school/cub3D/libft/ft_calloc.c" "/Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles/cub3D.dir/libft/ft_calloc.c.o"

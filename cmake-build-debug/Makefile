@@ -197,6 +197,33 @@ begin.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/begin.c.s
 .PHONY : begin.c.s
 
+draw.o: draw.c.o
+
+.PHONY : draw.o
+
+# target to build an object file
+draw.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/draw.c.o
+.PHONY : draw.c.o
+
+draw.i: draw.c.i
+
+.PHONY : draw.i
+
+# target to preprocess a source file
+draw.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/draw.c.i
+.PHONY : draw.c.i
+
+draw.s: draw.c.s
+
+.PHONY : draw.s
+
+# target to generate assembly for a file
+draw.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/draw.c.s
+.PHONY : draw.c.s
+
 ft_copy_map.o: ft_copy_map.c.o
 
 .PHONY : ft_copy_map.o
@@ -250,33 +277,6 @@ ft_error.s: ft_error.c.s
 ft_error.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/ft_error.c.s
 .PHONY : ft_error.c.s
-
-ft_raycasting.o: ft_raycasting.c.o
-
-.PHONY : ft_raycasting.o
-
-# target to build an object file
-ft_raycasting.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/ft_raycasting.c.o
-.PHONY : ft_raycasting.c.o
-
-ft_raycasting.i: ft_raycasting.c.i
-
-.PHONY : ft_raycasting.i
-
-# target to preprocess a source file
-ft_raycasting.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/ft_raycasting.c.i
-.PHONY : ft_raycasting.c.i
-
-ft_raycasting.s: ft_raycasting.c.s
-
-.PHONY : ft_raycasting.s
-
-# target to generate assembly for a file
-ft_raycasting.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/ft_raycasting.c.s
-.PHONY : ft_raycasting.c.s
 
 libft/ft_atoi.o: libft/ft_atoi.c.o
 
@@ -1589,15 +1589,15 @@ help:
 	@echo "... begin.o"
 	@echo "... begin.i"
 	@echo "... begin.s"
+	@echo "... draw.o"
+	@echo "... draw.i"
+	@echo "... draw.s"
 	@echo "... ft_copy_map.o"
 	@echo "... ft_copy_map.i"
 	@echo "... ft_copy_map.s"
 	@echo "... ft_error.o"
 	@echo "... ft_error.i"
 	@echo "... ft_error.s"
-	@echo "... ft_raycasting.o"
-	@echo "... ft_raycasting.i"
-	@echo "... ft_raycasting.s"
 	@echo "... libft/ft_atoi.o"
 	@echo "... libft/ft_atoi.i"
 	@echo "... libft/ft_atoi.s"

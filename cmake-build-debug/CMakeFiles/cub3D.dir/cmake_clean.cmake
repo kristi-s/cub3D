@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/cub3D.dir/action.c.o"
   "CMakeFiles/cub3D.dir/begin.c.o"
+  "CMakeFiles/cub3D.dir/draw.c.o"
   "CMakeFiles/cub3D.dir/ft_copy_map.c.o"
   "CMakeFiles/cub3D.dir/ft_error.c.o"
-  "CMakeFiles/cub3D.dir/ft_raycasting.c.o"
   "CMakeFiles/cub3D.dir/libft/ft_atoi.c.o"
   "CMakeFiles/cub3D.dir/libft/ft_bzero.c.o"
   "CMakeFiles/cub3D.dir/libft/ft_calloc.c.o"

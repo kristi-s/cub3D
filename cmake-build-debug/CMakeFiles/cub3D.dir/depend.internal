@@ -11,6 +11,11 @@ CMakeFiles/cub3D.dir/begin.c.o
  /Users/kristinasmirnova/21_school/cub3D/begin.c
  /Users/kristinasmirnova/21_school/cub3D/cub3D.h
  /Users/kristinasmirnova/21_school/cub3D/mlx.h
+CMakeFiles/cub3D.dir/draw.c.o
+ ../libft/libft.h
+ /Users/kristinasmirnova/21_school/cub3D/cub3D.h
+ /Users/kristinasmirnova/21_school/cub3D/draw.c
+ /Users/kristinasmirnova/21_school/cub3D/mlx.h
 CMakeFiles/cub3D.dir/ft_copy_map.c.o
  ../libft/libft.h
  /Users/kristinasmirnova/21_school/cub3D/cub3D.h
@@ -21,8 +26,6 @@ CMakeFiles/cub3D.dir/ft_error.c.o
  /Users/kristinasmirnova/21_school/cub3D/cub3D.h
  /Users/kristinasmirnova/21_school/cub3D/ft_error.c
  /Users/kristinasmirnova/21_school/cub3D/mlx.h
-CMakeFiles/cub3D.dir/ft_raycasting.c.o
- /Users/kristinasmirnova/21_school/cub3D/ft_raycasting.c
 CMakeFiles/cub3D.dir/libft/ft_atoi.c.o
  /Users/kristinasmirnova/21_school/cub3D/libft/ft_atoi.c
 CMakeFiles/cub3D.dir/libft/ft_bzero.c.o
@@ -155,7 +158,6 @@ CMakeFiles/cub3D.dir/paint_texture.c.o
  /Users/kristinasmirnova/21_school/cub3D/paint_texture.c
 CMakeFiles/cub3D.dir/read_map.c.o
  ../libft/libft.h
- ../minilibx_mms_20200219/mlx.h
  /Users/kristinasmirnova/21_school/cub3D/cub3D.h
  /Users/kristinasmirnova/21_school/cub3D/mlx.h
  /Users/kristinasmirnova/21_school/cub3D/read_map.c

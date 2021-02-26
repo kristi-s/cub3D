@@ -92,13 +92,13 @@
 		<Unit filename="/Users/kristinasmirnova/21_school/cub3D/begin.c">
 			<Option target="cub3D"/>
 		</Unit>
+		<Unit filename="/Users/kristinasmirnova/21_school/cub3D/draw.c">
+			<Option target="cub3D"/>
+		</Unit>
 		<Unit filename="/Users/kristinasmirnova/21_school/cub3D/ft_copy_map.c">
 			<Option target="cub3D"/>
 		</Unit>
 		<Unit filename="/Users/kristinasmirnova/21_school/cub3D/ft_error.c">
-			<Option target="cub3D"/>
-		</Unit>
-		<Unit filename="/Users/kristinasmirnova/21_school/cub3D/ft_raycasting.c">
 			<Option target="cub3D"/>
 		</Unit>
 		<Unit filename="/Users/kristinasmirnova/21_school/cub3D/libft/ft_atoi.c">

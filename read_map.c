@@ -1,8 +1,4 @@
-//
-// read map and check error
-// malloc: line, map_info;
-//
-#include <minilibx_mms_20200219/mlx.h>
+
 #include "cub3D.h"
 
 // -1 - error, 1 - success
@@ -56,275 +52,251 @@ int		ft_isspace(char c)
 	return (0);
 }
 
-// как обрабатывать тут ошибки
-void	ft_check_resolution(char *line, t_map *map_info)
+void	ft_check_resolution(char *line, t_map *info)
 {
-	int 			i;
+	int 	i;
 	int		x;
 	int		y;
 
 	i = 0;
-	map_info->resolution_x = ft_atoi(line);
+	info->w = ft_atoi(line);
 	while (ft_isspace(line[i]))
 		i++;
 	while (ft_isdigit(line[i]))
 		i++;
-	map_info->resolution_y = ft_atoi(&line[i]);
-	mlx_get_screen_size(map_info->mlx, &x, &y);
-	if ((map_info->resolution_x <= 0) || (map_info->resolution_y <= 0) ||
-			(map_info->resolution_x > x) || (map_info->resolution_y > y))
+	info->h = ft_atoi(&line[i]);
+	mlx_get_screen_size(info->mlx, &x, &y);
+	if ((info->w <= 0) || (info->h <= 0) ||
+		(info->w > x) || (info->h > y))
 	{
-		map_info->resolution_x = x;
-		map_info->resolution_y = y;
+		info->w = x;
+		info->h = y;
 	}
-	printf("res_x = %d  res_y = %d \n", map_info->resolution_x, map_info->resolution_y);
-	printf("x = %d  y = %d \n", x, y);
-
-	map_info->mlx = mlx_init();
-	map_info->win = mlx_new_window(map_info->mlx, map_info->resolution_x, map_info->resolution_y, map_info->file);
-	map_info->img = mlx_new_image(map_info->mlx, map_info->resolution_x, map_info->resolution_y);
-	map_info->addr = mlx_get_data_addr(map_info->img, &map_info->bits_per_pixel, &map_info->line_length, &map_info->endian);
-
+	info->mlx = mlx_init();
+	info->win = mlx_new_window(info->mlx, info->w, info->h, info->file);
+	info->img = mlx_new_image(info->mlx, info->w, info->h);
+	info->addr = mlx_get_data_addr(info->img, &info->bits_per_pixel, \
+									&info->line_length, &info->endian);
 }
 
 // получаем цвет
-int		ft_create_trgb_color(int t, int r, int g, int b)
+static int		ft_create_trgb_color(int t, int r, int g, int b)
 {
 	return(t << 24 | r << 16 | g << 8 | b);
 }
 
+static int 	ft_get_ind(char *line)
+{
+	int 	i;
+
+	if (!line)
+		return 0;
+	i = 0;
+	if (ft_isdigit(line[i]))
+	{
+		while (ft_isdigit(line[i]))
+			i++;
+		i++;
+		return i;
+	}
+	else
+	{
+		i++;
+		while (ft_isspace(line[i]))
+			i++;
+		if (ft_isdigit(line[i]))
+			return i;
+		else
+			ft_error("Error map: get color ceiling or floor\n");
+	}
+}
+
 // какие могут быть ошибки 	ещё??
 // если цвет меньше 0 или больше 255.
-void 	ft_get_color(char *line, t_map *map_info)
+void 	ft_get_color(char *line, t_map *info)
 {
 	int 	i;
 	int 	red;
 	int 	green;
 	int 	blue;
 
-	i = 0;
-	while (!ft_isdigit(line[i]) && line[i] != '\0')
-		i++;
+	i = ft_get_ind(line);
 	red = ft_atoi(&line[i]);
-	while (ft_isdigit(line[i]))
-		i++;
-	i++;
+	i = i + ft_get_ind(&line[i]);
 	green = ft_atoi(&line[i]);
-	while (ft_isdigit(line[i]))
-		i++;
-	i++;
+	i = i + ft_get_ind(&line[i]);
 	blue = ft_atoi(&line[i]);
 	if (red < 0 || red > 255 || blue < 0 || blue > 255 || green < 0 || green > 255)
-	{
-		write(2, "Error map: RGB color not in range [0,255]\n", 42);
-		exit(1);
-	}
+		ft_error("Error map: RGB color not in range [0,255]\n");
 	if (line[0] == 'F')
-		map_info->floor_color = ft_create_trgb_color(0, red, green, blue);
+		info->floor_color = ft_create_trgb_color(0, red, green, blue);
 	if (line[0] == 'C')
-		map_info->ceilling_color = ft_create_trgb_color(0, red, green, blue);
+		info->ceiling_color = ft_create_trgb_color(0, red, green, blue);
+}
+
+static char 	**ft_switch_txtr(char *line, t_map *info)
+{
+	if (ft_strlen(line) < 5)
+		ft_error("Error map: error texture\n");
+	if ((line[0] == 'N' && line[1] == 'O' && info->north_txtr != NULL) ||
+		(line[0] == 'S' && line[1] == 'O' && info->south_txtr != NULL) ||
+		(line[0] == 'W' && line[1] == 'E' && info->west_txtr != NULL) ||
+		(line[0] == 'E' && line[1] == 'A' && info->east_txtr != NULL) ||
+		(line[0] == 'S' && line[1] == ' ' && info->sprite_txtr != NULL))
+		ft_error("Error map: reinitialization texture\n");
+	if (line[0] == 'N' && line[1] == 'O')
+		return (&info->north_txtr);
+	else if (line[0] == 'S' && line[1] == 'O')
+		return (&info->south_txtr);
+	else if (line[0] == 'W' && line[1] == 'E')
+		return (&info->west_txtr);
+	else if (line[0] == 'E' && line[1] == 'A')
+		return (&info->east_txtr);
+	else if (line[0] == 'S' && line[1] == ' ')
+		return (&info->sprite_txtr);
+	else
+		ft_error("Error map: error texture\n");
 }
 
 // как обрабатывать тут ошибки
-void		ft_check_texture(char *line, t_map *map_info)
+void		ft_check_texture(char *line, t_map *info)
 {
 	int 	i;
 	int		len;
 	char	*ptr;
 	char	**adr;
 
-	i = 0;
-	// проверять если данная текстура (N,S,W,E) уже заполнена, то выходить с ошибкой
-	if ((line[i] == 'N' && map_info->north_txtr != NULL) ||
-			(line[i] == 'S' && line[i + 1] == 'O' && map_info->south_txtr != NULL) ||
-			(line[i] == 'W' && map_info->west_txtr != NULL) ||
-			(line[i] == 'E' && map_info->east_txtr != NULL) ||
-			(line[i] == 'S' && line[i + 1] == ' ' && map_info->sprite_txtr != NULL))
-	{
-		write(2, "Error map: reinitialization texture\n", 35);
-		exit(1);
-	}
-	if (line[i] == 'N' && line[i + 1] == 'O')
-		adr = &map_info->north_txtr;
-	else if (line[i] == 'S' && line[i + 1] == 'O')
-		adr = &map_info->south_txtr;
-	else if (line[i] == 'W' && line[i + 1] == 'E')
-		adr = &map_info->west_txtr;
-	else if (line[i] == 'E' && line[i + 1] == 'A')
-		adr = &map_info->east_txtr;
-	else if (line[i] == 'S' && line[i + 1] == ' ')
-		adr = &map_info->sprite_txtr;
-	else
-	{
-		write(2, "Error map: error texture\n", 25);
-		exit(1);
-	}
-	i++;
+	adr = ft_switch_txtr(line, info);
+	i = 1;
 	if (line[i] != ' ')
 		i++;
 	while (ft_isspace(line[i]))
 		i++;
 	len = 0;
 	while (line[i] >= 33 && line[i] <= 126) {
-		len++;  //?? нужна ли длина строки
+		len++;
 		i++;
 	}
-//	можно объединить две ошибки
-
-//	if (!(*adr = malloc(len + 1)))
-//		ft_puterror_mem();
-//	printf("%p\n", map_info->north_txtr);
-//	if (len == 0)
-//	{
-//		write(2, "Error map: error texture\n", 25);
-//		exit(1);
-//	}
-//	**(adr + len) = '\0';
-//	i--;
-//	while (len-- > 1)
-//	{
-//		**(adr + len) = line[i];
-//		i--;
-//	}
-
 	if (!(ptr = malloc(len + 1)))
-		ft_puterror_mem();
+		ft_error("Error memory allocation\n");
 	if (len == 0)
-	{
-		write(2, "Error map: error texture\n", 25);
-		exit(1);
-	}
+		ft_error("Error map: error texture\n");
 	ptr[len] = '\0';
 	i--;
 	while (len-- > 0)
-	{
-		ptr[len] = line[i];
-		i--;
-	}
+		ptr[len] = line[i--];
 	*adr = ptr;
 		// проверить что можно пройти и получить xpm
 //		перевести xpm в img и хранить указатель на текстуру
 // если путь не верный, то возвращать ошибку
 //	printf("%s\n", ptr);
+}
 
+//возвращать -1, если строка пустая
+//возвращать позицию начала строки, если не пустая
+static int 	ft_is_space_line(char *line)
+{
+	int		i;
+
+	i = 0;
+	if (!line)
+		ft_error("Error map: file reading error");
+	if (line[0] == '\0')
+		return (-1);
+	while (ft_isspace(line[i]))
+		i++;
+	if (line[i] == '\0')
+		return (-1);
+	else
+		return (i); // 	возвращаем позицию начала строки
 }
 
 // нужно ли что-то возвращать?? если нет, то сделать void
 // определить возврат 1 и 0?
-int 	ft_parse_line(char *line, t_map *map_info)
+void 	ft_parse_line(char *line, t_map *info)
 {
 	int		i;
 	static int flag_split;
-	i = 0;
-	if (!line)
-		return (0); // вернуть ошибку??
-//		оптимизировать проверку пустых строк
-	if (line[0] == '\0')
+
+	if ((i = ft_is_space_line(line)) == -1)
 	{
-		if (map_info->start_row != NULL)
-			flag_split = 1;
+		if (info->start_row != NULL)
+			flag_split = 1; //переменная статик!!! значение будет храниться
 		free(line);
-		return (1);
+		return;
 	}
-	while (ft_isspace(line[i]))
-		i++;
 	if (line[i] == 'R')
-		ft_check_resolution(&line[i + 1], map_info);
+		ft_check_resolution(&line[i + 1], info);
 	else if(line[i] == 'N' || line[i] == 'S' || line[i] == 'W' || line[i] == 'E')
-		ft_check_texture(&line[i], map_info);
+		ft_check_texture(&line[i], info);
 	else if (line[i] == 'F' || line[i] == 'C')
-		ft_get_color(&line[i], map_info);
-	else if (line[i] == '\0')
-	{
-		if (map_info->start_row != NULL)
-			flag_split = 1;
-		free(line);
-		return (1);
-	}
+		ft_get_color(&line[i], info);
 	else
 	{
 		if (flag_split == 1)
-		{
-			write(2, "Error map: map is split\n", 24);
-			exit(1);
-		}
-		ft_copy_map(line, map_info); // анализировать ошибки?
+			ft_error("Error map: map is split\n");
+		ft_copy_map(line, info); // анализировать ошибки?
 	}
 	if (line != NULL)
 		free(line);
-	return (1);
 }
 
-void	ft_init_info(t_map	*map_info)
+// key[8]: 0 = A; 1 = S; 2 = D; 3 = W; 4 = left; 5 = right;
+// можно подавать i как входной параметр
+// поправить к-во строк
+void	ft_init_info(t_map	*info)
 {
 	int i;
 
 	i = 0;
 	while (i < 8)
-		map_info->key[i++][0] = 0;
-	// key[8]: 0 = A; 1 = S; 2 = D; 3 = W; 4 = left; 5 = right;
-	map_info->key[0][1] = KEY_A;
-	map_info->key[1][1] = KEY_S;
-	map_info->key[2][1] = KEY_D;
-	map_info->key[3][1] = KEY_W;
-	map_info->key[4][1] = KEY_LEFT;
-	map_info->key[5][1] = KEY_RIGTH;
-
-	map_info->resolution_x = 0;
-	map_info->resolution_y = 0;
-	map_info->north_txtr = NULL;
-	map_info->south_txtr = NULL;
-	map_info->west_txtr = NULL;
-	map_info->east_txtr = NULL;
-	map_info->sprite_txtr = NULL;
-	map_info->floor_color = 0;
-	map_info->ceilling_color = 0;
-	map_info->count_line_in_map = 0;
-	map_info->max_line_len = 0;
-	map_info->count_sprites = 0;
-	map_info->start_row = NULL;
-	map_info->last_row = NULL;
-	map_info->position_player = 0;
-	map_info->arr_map = NULL;
+		info->key[i++][0] = 0;
+	info->key[0][1] = KEY_A;
+	info->key[1][1] = KEY_S;
+	info->key[2][1] = KEY_D;
+	info->key[3][1] = KEY_W;
+	info->key[4][1] = KEY_LEFT;
+	info->key[5][1] = KEY_RIGTH;
+	info->w = 0;
+	info->h = 0;
+	info->north_txtr = NULL;
+	info->south_txtr = NULL;
+	info->west_txtr = NULL;
+	info->east_txtr = NULL;
+	info->sprite_txtr = NULL;
+	info->floor_color = 0;
+	info->ceiling_color = 0;
+	info->count_line = 0;
+	info->max_line_len = 0;
+	info->count_sprites = 0;
+	info->start_row = NULL;
+	info->last_row = NULL;
+	info->pos_pl = 0;
+	info->arr_map = NULL;
 }
 
 
-void	ft_read_map(t_map *map_info)
+void	ft_read_map(t_map *info)
 {
 	int		fd;
 	int		n;
 	char 	*line;
 
-	if ((fd = open(map_info->file, 0)) == -1)
-		return (ft_puterror()); // ошибка чтения карты исп perror, strerror ?
+	if ((fd = open(info->file, 0)) == -1)
+		ft_error("Error map: file opening error");
 	while ((n = ft_read_line(fd, &line)) > 0)
-		ft_parse_line(line, map_info);
+		ft_parse_line(line, info);
 	if (n == 0)
 	{
-//		поставить проверку того что последняя строка состоит из 1
-//		или неписать функцию отдельно, так как если раскомментировать
-//		то в подсчеты будет добавляться еще одна строка
-//		if (ft_contents_of_line(line, map_info, "1 ") != 1)
-//			return; //возвращать ошибку, отчищать память ошибка последней строки карты
-//			или выходить по 	exit(1)
-		ft_parse_line(line, map_info);
-		ft_create_arr_map(map_info); // поставить проверки?
-		ft_paint_texture(map_info);
-//		map_info->wall_n = ft_paint_texture(WAY_T_N, map_info->mlx); //(char *file, void *ptr_mlx)
-//		map_info->wall_s = ft_paint_texture(WAY_T_S, map_info->mlx);
-//		map_info->wall_e = ft_paint_texture(WAY_T_E, map_info->mlx);
-//		map_info->wall_w = ft_paint_texture(WAY_T_W, map_info->mlx);
-		ft_render(map_info);
-
+		ft_parse_line(line, info);
+		ft_create_arr_map(info);
+		ft_paint_texture(info);
+		ft_render(info);
 	}
 	if (n == -1)
-	{
-		if (line != NULL)
-			free(line);
-		return (ft_puterror()); // ошибка при чтении файла
-	}
-	if (close(fd) == -1) // ошибка закрытия файла
-		return (ft_puterror());
+		ft_error("Error map: file reading error");
+	if (close(fd) == -1)
+		ft_error("Error map: file closing error");
 }
 
 
