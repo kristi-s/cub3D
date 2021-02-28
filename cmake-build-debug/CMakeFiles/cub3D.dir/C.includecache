@@ -14,6 +14,10 @@ stdlib.h
 unistd.h
 -
 
+/Users/kristinasmirnova/21_school/cub3D/action.c
+cub3D.h
+/Users/kristinasmirnova/21_school/cub3D/cub3D.h
+
 /Users/kristinasmirnova/21_school/cub3D/begin.c
 cub3D.h
 /Users/kristinasmirnova/21_school/cub3D/cub3D.h
@@ -40,5 +44,33 @@ libft.h
 cub3D.h
 /Users/kristinasmirnova/21_school/cub3D/cub3D.h
 
+/Users/kristinasmirnova/21_school/cub3D/ft_copy_map.c
+cub3D.h
+/Users/kristinasmirnova/21_school/cub3D/cub3D.h
+
+/Users/kristinasmirnova/21_school/cub3D/ft_error.c
+cub3D.h
+/Users/kristinasmirnova/21_school/cub3D/cub3D.h
+
+/Users/kristinasmirnova/21_school/cub3D/main.c
+cub3D.h
+/Users/kristinasmirnova/21_school/cub3D/cub3D.h
+
 /Users/kristinasmirnova/21_school/cub3D/mlx.h
+
+/Users/kristinasmirnova/21_school/cub3D/paint_texture.c
+cub3D.h
+/Users/kristinasmirnova/21_school/cub3D/cub3D.h
+
+/Users/kristinasmirnova/21_school/cub3D/read_map.c
+cub3D.h
+/Users/kristinasmirnova/21_school/cub3D/cub3D.h
+
+/Users/kristinasmirnova/21_school/cub3D/sprites.c
+cub3D.h
+/Users/kristinasmirnova/21_school/cub3D/cub3D.h
+
+/Users/kristinasmirnova/21_school/cub3D/valid_map.c
+cub3D.h
+/Users/kristinasmirnova/21_school/cub3D/cub3D.h
 

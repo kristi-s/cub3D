@@ -91,6 +91,10 @@ typedef struct	s_data {
 	int endian;
 	int width;
 	int height;
+	double		step;
+	double  pos;
+	int x;
+	int y;
 }				t_data;
 
 typedef struct		s_map
@@ -138,7 +142,7 @@ typedef struct		s_map
 // key[8]: 0 = A; 1 = S; 2 = D; 3 = W; 4 = left; 5 = right; 6 = up; down = 7;
 
 int		ft_isspace(char c);
-void 	my_mlx_pixel_put(t_map *info, int x, int y, int color);
+void 	ft_my_mlx_pixel_put(t_map *info, int x, int y, int color);
 void	ft_read_map(t_map *info);
 void	ft_init_info(t_map	*info);
 //void 	draw_ver_line(t_map *info, int x, int y0, int y1);
@@ -146,17 +150,25 @@ void		ft_copy_map(char *line, t_map *info);
 //int 	ft_contents_of_line(char *line, t_map *info, char *content);
 void	ft_create_arr_map(t_map *info);
 t_cam 	*set_pos_player(unsigned int p_x, unsigned int p_y, char way_player); ///?????
-int 	ft_close(int keycode, t_map *info);
+int 	ft_close(void);
 int 	ft_key_press(int keycode, t_map *info);
 int 	ft_key_release(int keycode, t_map *info);
 int     ft_render_next(t_map *info);
-void 	ft_draw(t_map *info);
+void 	ft_calc(t_map *info);
 void 	ft_render(t_map *info);
 //t_data		*ft_paint_texture(char *file, void *ptr_mlx);
 void		ft_paint_texture(t_map *info);
-void 	draw_txtr(t_map *info, t_data *txtr, int x, t_cam *cam);
+void 	ft_creat_txtr_wall(t_map *info, t_data *txtr, int x, t_cam *cam);
 void 	ft_draw_floor_ceiling(t_map *info, int x, int y1, int y2);
 
+void	ft_init_cam_other(t_cam *cam);
+void 	ft_calc_param_ray(int w, int x, t_cam *cam);
+void 	ft_find_wall_calc_perp(int x, t_cam *cam, t_map *info);
+void 	ft_calc_param_line(int h, t_cam *cam);
+void 	ft_take_line_from_pic(int x, t_cam *cam, t_map *info);
+void 	ft_find_dist_spr(t_map *info);
+void 	ft_calc_spr(t_map *info, t_sprt *spr, t_cam *cam, int ind);
+void 	ft_draw_spr(t_map *info, t_sprt *spr, int txt_w, int txt_h);
 
 void	ft_count_sprite(t_map *info);
 
@@ -168,7 +180,7 @@ void	ft_error(char *str_err);
 void	ft_sort(t_map *info);
 
 // переписать!!!
-int			get_pixel(t_data *txtr, int x, int y);
-int			add_shade(double distance, int color);
+int			ft_get_pixel_color(t_data *txtr, int x, int y);
+int			create_shadow(double distance, int color);
 
 #endif

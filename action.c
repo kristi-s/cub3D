@@ -3,24 +3,17 @@
 void 	ft_turn(t_cam *cam, int way);
 void 	ft_move(t_cam *cam, char *arr_map, unsigned int size, int way);
 
-int 	ft_close(int keycode, t_map *info)
+int 	ft_close(void)
 {
-//	printf("ft_close: keycode = %d\n", keycode);
-	if (keycode != KEY_ESC)
-		return (0);
-	mlx_destroy_window(info->mlx, info->win);
 	exit(0);
 }
 
-// key[][]: 0 = A; 1 = S; 2 = D; 3 = W; 4 = left; 5 = right;
 void 	ft_key_change(int keycode, char status, int key[6][2])
 {
 	int i;
 
 	i = 0;
 	if (keycode == KEY_ESC) {
-//		нужно ли делать эту функцию? или достаточно exit???
-//		mlx_destroy_window(map_info->mlx, map_info->win);
 		exit(0);
 	}
 	while (i < 6)
@@ -31,21 +24,7 @@ void 	ft_key_change(int keycode, char status, int key[6][2])
 			return;
 		}
 		i++;
-
 	}
-
-//	if (keycode == KEY_A)
-//		key[0][0] = status;
-//	else if (keycode == KEY_S)
-//		key[1][0] = status;
-//	else if (keycode == KEY_D)
-//		key[2][0] = status;
-//	else if (keycode == KEY_W)
-//		key[3][0] = status;
-//	else if (keycode == KEY_LEFT)
-//		key[4][0] = status;
-//	else if (keycode == KEY_RIGTH)
-//		key[5][0] = status;
 }
 
 int 	ft_key_press(int keycode, t_map *info)
@@ -70,7 +49,6 @@ void 	ft_choose_action(int i, t_map *info)
 				ft_move(info->cam, info->arr_map, info->max_line_len, info->key[i][1]);
 			else
 				ft_turn(info->cam, info->key[i][1]);
-
 		}
 		i++;
 	}
@@ -88,30 +66,26 @@ int     ft_render_next(t_map *info)
 		return (0);
 	mlx_do_sync(info->mlx);
 	ft_choose_action(i, info);
-
-	// сделать ft_render ???
 	info->img = mlx_new_image(info->mlx, info->w, info->h);
 	if (!info->img)
 		ft_error("Error: create new image fail\n");
 	info->addr = mlx_get_data_addr(info->img, &info->bits_per_pixel, \
 		&info->line_length, &info->endian);
-	ft_draw(info);
+	ft_calc(info);
 	mlx_put_image_to_window(info->mlx, info->win, info->img, 0, 0);
 	mlx_destroy_image(info->mlx, info->img);
 	return (0);
 }
 
-// call ft_move(map_info->cam, map_info->arr_map, map_info->max_line_len, keycode)
-// передавать целиком map_info
 void 	ft_move(t_cam *cam, char *arr_map, unsigned int size, int way)
 {
-	double delta_x; // если что можно перенести во входные параметры
+	double delta_x;
 	double delta_y;
-	double new_x; //можно оставить без использования переменной
+	double new_x;
 	double new_y;
 	int dir;
 
-	dir = 1; //если W or D то будет 1
+	dir = 1;
 	if (way == KEY_S || way == KEY_A)
 		dir = -1;
 	if (way == KEY_S || way == KEY_W)
@@ -119,16 +93,13 @@ void 	ft_move(t_cam *cam, char *arr_map, unsigned int size, int way)
 		delta_x = cam->dir_x * MOVE_SPEED;
 		delta_y = cam->dir_y * MOVE_SPEED;
 	}
-	else // 	в случае если A or D
+	else
 	{
 		delta_x = cam->plane_x * MOVE_SPEED;
 		delta_y = cam->plane_y * MOVE_SPEED;
 	}
 	new_x = cam->pos_x + (dir * delta_x);
 	new_y = cam->pos_y + (dir * delta_y);
-
-// добавить проверку о выхода за границы массива
-// 	если карта закрыта, то не будет выходить за границы ????
 	if (arr_map[(int)(new_x) + ((int)(new_y) * size)] != '1')
 	{
 		cam->pos_x = new_x;
@@ -136,7 +107,6 @@ void 	ft_move(t_cam *cam, char *arr_map, unsigned int size, int way)
 	}
 }
 
-// call ft_turn(map_info->cam, keycode)
 void 	ft_turn(t_cam *cam, int way)
 {
 	double  cur_dir_x;

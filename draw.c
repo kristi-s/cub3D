@@ -1,16 +1,4 @@
 #include "cub3D.h"
-//void 	ft_color_wall(int side, int stepX, int stepY, t_map *info);
-// struct
-//double cameraX
-//	double rayDirX
-//	double rayDirY
-//int mapX
-//int mapY
-//double deltaDistX
-//double deltaDistY
-//double sideDistX
-//double sideDistY
-//double perpWallDist
 
 void	ft_init_cam_other(t_cam *cam)
 {
@@ -34,7 +22,9 @@ void	ft_init_cam_other(t_cam *cam)
 
 }
 
-void 	ft_one(int w, int x, t_cam *cam)
+// считаем параметры луча
+// ft_calc_param_ray
+void 	ft_calc_param_ray(int w, int x, t_cam *cam)
 { // вычисляем положение луча и направление
 	cam->camera_x = 2 * x / (double)w - 1;
 	cam->ray_dir_x = cam->dir_x + (cam->camera_x * cam->plane_x);
@@ -59,7 +49,9 @@ void 	ft_one(int w, int x, t_cam *cam)
 	}
 }
 
-void 	ft_two(int x, t_cam *cam, t_map *info)
+// ищем стену и считаем расстояние проекции луча на камеру
+// ft_find_wall_calc_perp
+void 	ft_find_wall_calc_perp(int x, t_cam *cam, t_map *info)
 {
 	int	hit;
 
@@ -89,8 +81,9 @@ void 	ft_two(int x, t_cam *cam, t_map *info)
 // 	заполнять только если есть спрайты
 
 
-
-void 	ft_three(int h, t_cam *cam)
+// считаем длину линии и нижний и верхний пиксель стены на текущей линии
+// ft_calc_param_line (считаем параметры линии)
+void 	ft_calc_param_line(int h, t_cam *cam)
 {
 	cam->line_height = (int)(h / cam->perp_wall_dist);
 	cam->draw_start = -(cam->line_height) / 2 + h / 2;
@@ -101,9 +94,10 @@ void 	ft_three(int h, t_cam *cam)
 		cam->draw_end = h - 1;
 }
 
-void 	ft_four(int x, t_cam *cam, t_map *info)
+// берем линию из текстуры
+// ft_take_line_from_pic
+void 	ft_take_line_from_pic(int x, t_cam *cam, t_map *info)
 {
-	// for textures needed
 	if (cam->side == 0)
 		cam->wall_x = cam->pos_y + cam->perp_wall_dist * cam->ray_dir_y;
 	else
@@ -111,26 +105,26 @@ void 	ft_four(int x, t_cam *cam, t_map *info)
 	cam->wall_x -= floor(cam->wall_x);
 	//
 	if (cam->side == 1 && cam->step_y < 0)
-		draw_txtr(info, info->wall_n, x, cam);
+		ft_creat_txtr_wall(info, info->wall_n, x, cam);
 	else if (cam->side == 1 && cam->step_y > 0)
-		draw_txtr(info, info->wall_s, x, cam);
+		ft_creat_txtr_wall(info, info->wall_s, x, cam);
 	else if (cam->side == 0 && cam->step_x < 0)
-		draw_txtr(info, info->wall_e, x, cam);
+		ft_creat_txtr_wall(info, info->wall_e, x, cam);
 	else if (cam->side == 0 && cam->step_x > 0)
-		draw_txtr(info, info->wall_w, x, cam);
+		ft_creat_txtr_wall(info, info->wall_w, x, cam);
 }
 /*
-void 	ft_draw(t_map *info)
+void 	ft_calc(t_map *info)
 {
 	int x;
 
 	x = 0;
 	ft_init_cam_other(info->cam);
 	while (x < info->w) {
-		ft_one(info->w, x, info->cam);
-		ft_two(x, info->cam, info);
-		ft_three(info->h, info->cam);
-		ft_four(x, info->cam, info);
+		ft_calc_param_ray(info->w, x, info->cam);
+		ft_find_wall_calc_perp(x, info->cam, info);
+		ft_calc_param_line(info->h, info->cam);
+		ft_take_line_from_pic(x, info->cam, info);
 
 		ft_draw_floor_ceiling(info, x, info->cam->draw_start, info->cam->draw_end);
 
@@ -186,36 +180,34 @@ void 	ft_calc_spr(t_map *info, t_sprt *spr, t_cam *cam, int ind)
 		spr->draw_end_x = info->w - 1;
 }
 // ft_draw_spr(info, info->sprites, info->sp_img->width, info->sp_img->height);
+
+//loop through every vertical stripe of the sp_img on screen
 void 	ft_draw_spr(t_map *info, t_sprt *spr, int txt_w, int txt_h)
 {
-	int stripe;
-//	int texX;
-//	int texY;
-//	int texWidth = 64; //размер текстуры
-//	int texHeight = 64;
-	//loop through every vertical stripe of the sp_img on screen
-	stripe = spr->draw_start_x;
+	int x;
 	int color;
 	int d;
 	int y;
-	while (stripe < spr->draw_end_x) {
-		spr->txtr_x = (int) (256 * (stripe - (-spr->sprite_width / 2 + spr->sprite_screen_x)) * \
+
+	x = spr->draw_start_x;
+	while (x < spr->draw_end_x) {
+		spr->txtr_x = (int) (256 * (x - (-spr->sprite_width / 2 + spr->sprite_screen_x)) * \
 									txt_w / spr->sprite_width) / 256;
-		if (spr->transform_y > 0 && stripe > 0 && stripe < info->w &&
-				spr->transform_y  < info->z_buff[stripe]) {
+		if (spr->transform_y > 0 && x > 0 && x < info->w &&
+				spr->transform_y  < info->z_buff[x]) {
 			y = spr->draw_start_y;
 			while (y < spr->draw_end_y)
 			{
 				d = (y) * 256 - info->h * 128 + \
 					spr->sprite_height * 128;
 				spr->txtr_y = ((d * txt_h) / spr->sprite_height) / 256;
-				color = get_pixel(info->sp_img, spr->txtr_x, spr->txtr_y);
+				color = ft_get_pixel_color(info->sp_img, spr->txtr_x, spr->txtr_y);
 				if ((color & 0x00FFFFFF) != 0)
-					my_mlx_pixel_put(info, stripe, y, add_shade(0.2, color));
+					ft_my_mlx_pixel_put(info, x, y, color);
 				y++;
 			}
 		}
-		stripe++;
+		x++;
 	}
 }
 
