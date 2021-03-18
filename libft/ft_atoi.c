@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: droslyn <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: droslyn <droslyn@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 21:39:21 by droslyn           #+#    #+#             */
-/*   Updated: 2020/11/05 18:14:27 by droslyn          ###   ########.fr       */
+/*   Updated: 2021/03/18 19:28:52 by droslyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int			ft_isspace(char c)
-{
-	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f' ||
-			c == '\r')
-		return (1);
-	return (0);
-}
+#include "libft.h"
 
 int					ft_atoi(const char *str)
 {

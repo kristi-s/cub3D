@@ -68,10 +68,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/kristinasmirnova/21_school/cub3D
+CMAKE_SOURCE_DIR = /Users/kristinasmirnova/21_school/cub3D_2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/kristinasmirnova/21_school/cub3D/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles /Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles /Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kristinasmirnova/21_school/cub3D/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -197,6 +197,60 @@ begin.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/begin.c.s
 .PHONY : begin.c.s
 
+copy_map.o: copy_map.c.o
+
+.PHONY : copy_map.o
+
+# target to build an object file
+copy_map.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/copy_map.c.o
+.PHONY : copy_map.c.o
+
+copy_map.i: copy_map.c.i
+
+.PHONY : copy_map.i
+
+# target to preprocess a source file
+copy_map.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/copy_map.c.i
+.PHONY : copy_map.c.i
+
+copy_map.s: copy_map.c.s
+
+.PHONY : copy_map.s
+
+# target to generate assembly for a file
+copy_map.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/copy_map.c.s
+.PHONY : copy_map.c.s
+
+create_screenshot.o: create_screenshot.c.o
+
+.PHONY : create_screenshot.o
+
+# target to build an object file
+create_screenshot.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/create_screenshot.c.o
+.PHONY : create_screenshot.c.o
+
+create_screenshot.i: create_screenshot.c.i
+
+.PHONY : create_screenshot.i
+
+# target to preprocess a source file
+create_screenshot.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/create_screenshot.c.i
+.PHONY : create_screenshot.c.i
+
+create_screenshot.s: create_screenshot.c.s
+
+.PHONY : create_screenshot.s
+
+# target to generate assembly for a file
+create_screenshot.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/create_screenshot.c.s
+.PHONY : create_screenshot.c.s
+
 draw.o: draw.c.o
 
 .PHONY : draw.o
@@ -223,33 +277,6 @@ draw.s: draw.c.s
 draw.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/draw.c.s
 .PHONY : draw.c.s
-
-ft_copy_map.o: ft_copy_map.c.o
-
-.PHONY : ft_copy_map.o
-
-# target to build an object file
-ft_copy_map.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/ft_copy_map.c.o
-.PHONY : ft_copy_map.c.o
-
-ft_copy_map.i: ft_copy_map.c.i
-
-.PHONY : ft_copy_map.i
-
-# target to preprocess a source file
-ft_copy_map.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/ft_copy_map.c.i
-.PHONY : ft_copy_map.c.i
-
-ft_copy_map.s: ft_copy_map.c.s
-
-.PHONY : ft_copy_map.s
-
-# target to generate assembly for a file
-ft_copy_map.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/ft_copy_map.c.s
-.PHONY : ft_copy_map.c.s
 
 ft_error.o: ft_error.c.o
 
@@ -493,6 +520,33 @@ libft/ft_isprint.s: libft/ft_isprint.c.s
 libft/ft_isprint.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/libft/ft_isprint.c.s
 .PHONY : libft/ft_isprint.c.s
+
+libft/ft_isspace.o: libft/ft_isspace.c.o
+
+.PHONY : libft/ft_isspace.o
+
+# target to build an object file
+libft/ft_isspace.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/libft/ft_isspace.c.o
+.PHONY : libft/ft_isspace.c.o
+
+libft/ft_isspace.i: libft/ft_isspace.c.i
+
+.PHONY : libft/ft_isspace.i
+
+# target to preprocess a source file
+libft/ft_isspace.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/libft/ft_isspace.c.i
+.PHONY : libft/ft_isspace.c.i
+
+libft/ft_isspace.s: libft/ft_isspace.c.s
+
+.PHONY : libft/ft_isspace.s
+
+# target to generate assembly for a file
+libft/ft_isspace.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/libft/ft_isspace.c.s
+.PHONY : libft/ft_isspace.c.s
 
 libft/ft_itoa.o: libft/ft_itoa.c.o
 
@@ -1589,12 +1643,15 @@ help:
 	@echo "... begin.o"
 	@echo "... begin.i"
 	@echo "... begin.s"
+	@echo "... copy_map.o"
+	@echo "... copy_map.i"
+	@echo "... copy_map.s"
+	@echo "... create_screenshot.o"
+	@echo "... create_screenshot.i"
+	@echo "... create_screenshot.s"
 	@echo "... draw.o"
 	@echo "... draw.i"
 	@echo "... draw.s"
-	@echo "... ft_copy_map.o"
-	@echo "... ft_copy_map.i"
-	@echo "... ft_copy_map.s"
 	@echo "... ft_error.o"
 	@echo "... ft_error.i"
 	@echo "... ft_error.s"
@@ -1622,6 +1679,9 @@ help:
 	@echo "... libft/ft_isprint.o"
 	@echo "... libft/ft_isprint.i"
 	@echo "... libft/ft_isprint.s"
+	@echo "... libft/ft_isspace.o"
+	@echo "... libft/ft_isspace.i"
+	@echo "... libft/ft_isspace.s"
 	@echo "... libft/ft_itoa.o"
 	@echo "... libft/ft_itoa.i"
 	@echo "... libft/ft_itoa.s"

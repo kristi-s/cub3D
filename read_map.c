@@ -1,11 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: droslyn <droslyn@student.21-school.ru>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/18 19:37:55 by droslyn           #+#    #+#             */
+/*   Updated: 2021/03/18 19:38:23 by droslyn          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "cub3D.h"
 
-// -1 - error, 1 - success
-int 	ft_append_buf(char **line, char *buf)
+int			ft_append_buf(char **line, char *buf)
 {
-	char 	*tmp;
-	int 	i;
+	char	*tmp;
+	int		i;
 
 	i = 0;
 	if (!(tmp = malloc(ft_strlen(*line) + 2)))
@@ -22,11 +32,10 @@ int 	ft_append_buf(char **line, char *buf)
 	return (1);
 }
 
-// аналог гнл, возвращает -1 если ошибка, 1 и 0 в случае успешного считывания файла
-int 	ft_read_line(int fd, char **line)
+int				ft_read_line(int fd, char **line)
 {
 	static char	buf[2];
-	int 		n;
+	int			n;
 
 	if (fd < 0 || !line || !(*line = malloc(1)))
 		return (-1);
@@ -43,16 +52,7 @@ int 	ft_read_line(int fd, char **line)
 	return (0);
 }
 
-// 	добавить функцию в libft
-int		ft_isspace(char c)
-{
-	if (c == ' ' || c == '\n' || c == '\t' || c == '\r' ||
-		c == '\f' || c == '\v')
-		return (1);
-	return (0);
-}
-
-void	ft_check_resolution(char *line, t_map *info)
+void		ft_check_resolution(char *line, t_map *info)
 {
 	int 	i;
 	int		x;
@@ -79,15 +79,14 @@ void	ft_check_resolution(char *line, t_map *info)
 									&info->line_length, &info->endian);
 }
 
-// получаем цвет
 static int		ft_create_trgb_color(int t, int r, int g, int b)
 {
 	return(t << 24 | r << 16 | g << 8 | b);
 }
 
-static int 	ft_get_ind(char *line)
+static int	ft_get_ind(char *line)
 {
-	int 	i;
+	int		i;
 
 	if (!line)
 		return 0;
@@ -109,16 +108,15 @@ static int 	ft_get_ind(char *line)
 		else
 			ft_error("Error map: get color ceiling or floor\n");
 	}
+	return 0;
 }
 
-// какие могут быть ошибки 	ещё??
-// если цвет меньше 0 или больше 255.
-void 	ft_get_color(char *line, t_map *info)
+void		ft_get_color(char *line, t_map *info)
 {
-	int 	i;
-	int 	red;
-	int 	green;
-	int 	blue;
+	int		i;
+	int		red;
+	int		green;
+	int		blue;
 
 	i = ft_get_ind(line);
 	red = ft_atoi(&line[i]);
@@ -134,7 +132,7 @@ void 	ft_get_color(char *line, t_map *info)
 		info->ceiling_color = ft_create_trgb_color(0, red, green, blue);
 }
 
-static char 	**ft_switch_txtr(char *line, t_map *info)
+static char		**ft_switch_txtr(char *line, t_map *info)
 {
 	if (ft_strlen(line) < 5)
 		ft_error("Error map: error texture\n");
@@ -156,12 +154,12 @@ static char 	**ft_switch_txtr(char *line, t_map *info)
 		return (&info->sprite_txtr);
 	else
 		ft_error("Error map: error texture\n");
+	return 0;
 }
 
-// как обрабатывать тут ошибки
 void		ft_check_texture(char *line, t_map *info)
 {
-	int 	i;
+	int		i;
 	int		len;
 	char	*ptr;
 	char	**adr;
@@ -186,15 +184,9 @@ void		ft_check_texture(char *line, t_map *info)
 	while (len-- > 0)
 		ptr[len] = line[i--];
 	*adr = ptr;
-		// проверить что можно пройти и получить xpm
-//		перевести xpm в img и хранить указатель на текстуру
-// если путь не верный, то возвращать ошибку
-//	printf("%s\n", ptr);
 }
 
-//возвращать -1, если строка пустая
-//возвращать позицию начала строки, если не пустая
-static int 	ft_is_space_line(char *line)
+static int	ft_is_space_line(char *line)
 {
 	int		i;
 
@@ -208,12 +200,10 @@ static int 	ft_is_space_line(char *line)
 	if (line[i] == '\0')
 		return (-1);
 	else
-		return (i); // 	возвращаем позицию начала строки
+		return (i);
 }
 
-// нужно ли что-то возвращать?? если нет, то сделать void
-// определить возврат 1 и 0?
-void 	ft_parse_line(char *line, t_map *info)
+void	ft_parse_line(char *line, t_map *info)
 {
 	int		i;
 	static int flag_split;
@@ -221,7 +211,7 @@ void 	ft_parse_line(char *line, t_map *info)
 	if ((i = ft_is_space_line(line)) == -1)
 	{
 		if (info->start_row != NULL)
-			flag_split = 1; //переменная статик!!! значение будет храниться
+			flag_split = 1;
 		free(line);
 		return;
 	}
@@ -235,18 +225,15 @@ void 	ft_parse_line(char *line, t_map *info)
 	{
 		if (flag_split == 1)
 			ft_error("Error map: map is split\n");
-		ft_copy_map(line, info); // анализировать ошибки?
+		ft_copy_map(line, info);
 	}
 	if (line != NULL)
 		free(line);
 }
 
-// key[8]: 0 = A; 1 = S; 2 = D; 3 = W; 4 = left; 5 = right;
-// можно подавать i как входной параметр
-// поправить к-во строк
 void	ft_init_info(t_map	*info)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 8)
@@ -275,12 +262,11 @@ void	ft_init_info(t_map	*info)
 	info->arr_map = NULL;
 }
 
-
-void	ft_read_map(t_map *info)
+void		ft_read_map(t_map *info)
 {
 	int		fd;
 	int		n;
-	char 	*line;
+	char	*line;
 
 	if ((fd = open(info->file, 0)) == -1)
 		ft_error("Error map: file opening error");
@@ -291,6 +277,8 @@ void	ft_read_map(t_map *info)
 		ft_parse_line(line, info);
 		ft_create_arr_map(info);
 		ft_paint_texture(info);
+		if (info->flag_save == 1)
+			ft_make_screenshot(info);
 		ft_render(info);
 	}
 	if (n == -1)

@@ -26,6 +26,13 @@
 #define ROTATION 0.05
 #define FOV	0.66
 
+#define BITMAPFILEHEADER_SIZE 14
+#define BITMAPINFO_SIZE 40
+#define ALLBMPHEADER 54
+#define PMOD 0644
+#define FILE_BMP "cub3D.bmp"
+
+
 
 
 // Resolution:
@@ -38,6 +45,13 @@
 // identifier: F  //  R,G,B colors in range [0,255]: 0, 255, 255
 // Ceilling color: аналогично; id: C;
 
+typedef struct	s_move {
+	double		delta_x;
+	double		delta_y;
+	double		new_x;
+	double		new_y;
+	int			dir;
+}				t_move;
 
 typedef struct s_sprt {
 	double	x;
@@ -54,6 +68,8 @@ typedef struct s_sprt {
 	int		draw_end_x;
 	int		txtr_x;
 	int		txtr_y;
+	int		color;
+	int		d;
 }			t_sprt;
 
 typedef struct s_cam {
@@ -100,6 +116,7 @@ typedef struct	s_data {
 typedef struct		s_map
 {
 	char 			*file;
+	unsigned int	flag_save;
 	int 			w; // resolution x
 	int 			h; // resolution y
 	char			*north_txtr;
@@ -149,12 +166,13 @@ void	ft_init_info(t_map	*info);
 void		ft_copy_map(char *line, t_map *info);
 //int 	ft_contents_of_line(char *line, t_map *info, char *content);
 void	ft_create_arr_map(t_map *info);
-t_cam 	*set_pos_player(unsigned int p_x, unsigned int p_y, char way_player); ///?????
+t_cam 	*ft_set_pos_player(unsigned int p_x, unsigned int p_y, char way_player); ///?????
 int 	ft_close(void);
 int 	ft_key_press(int keycode, t_map *info);
 int 	ft_key_release(int keycode, t_map *info);
-int     ft_render_next(t_map *info);
-void 	ft_calc(t_map *info);
+void	ft_choose_action(int i, t_map *info);
+//int     ft_render_next(t_map *info);
+void 	ft_calc(t_map *info, t_cam *cam, unsigned int i, int x);
 void 	ft_render(t_map *info);
 //t_data		*ft_paint_texture(char *file, void *ptr_mlx);
 void		ft_paint_texture(t_map *info);
@@ -163,8 +181,8 @@ void 	ft_draw_floor_ceiling(t_map *info, int x, int y1, int y2);
 
 void	ft_init_cam_other(t_cam *cam);
 void 	ft_calc_param_ray(int w, int x, t_cam *cam);
-void 	ft_find_wall_calc_perp(int x, t_cam *cam, t_map *info);
-void 	ft_calc_param_line(int h, t_cam *cam);
+void 	ft_find_wall(t_cam *cam, t_map *info, int hit);
+void 	ft_calc_perp_and_param_line(int x, int h, t_cam *cam, t_map *info);
 void 	ft_take_line_from_pic(int x, t_cam *cam, t_map *info);
 void 	ft_find_dist_spr(t_map *info);
 void 	ft_calc_spr(t_map *info, t_sprt *spr, t_cam *cam, int ind);
@@ -179,8 +197,8 @@ void	ft_error(char *str_err);
 
 void	ft_sort(t_map *info);
 
-// переписать!!!
-int			ft_get_pixel_color(t_data *txtr, int x, int y);
-int			create_shadow(double distance, int color);
+
+int			ft_get_pxl_clr(t_data *txtr, int x, int y);
+void		ft_make_screenshot(t_map *info);
 
 #endif

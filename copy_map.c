@@ -1,21 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   copy_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: droslyn <droslyn@student.21-school.ru>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/18 01:00:15 by droslyn           #+#    #+#             */
+/*   Updated: 2021/03/18 20:04:48 by droslyn          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
-static int 	ft_contents_of_line(char *line, t_map *info, char *content)
+static int			ft_contents_of_line(char *line, t_map *info, char *content)
 {
-	int		i;
+	int				i;
 
 	i = 0;
 	info->count_line++;
 	if (ft_strlen(line) > info->max_line_len)
 		info->max_line_len = ft_strlen(line);
-	while(line[i] != '\0' && ft_strchr(content, line[i]))
+	while (line[i] != '\0' && ft_strchr(content, line[i]))
 	{
 		if (ft_isalpha(line[i]))
 		{
 			if (info->pos_pl == 0)
 			{
 				info->pos_pl = line[i];
-				info->cam = set_pos_player(i, info->count_line, info->pos_pl);
+				info->cam = ft_set_pos_player(i, info->count_line, \
+												info->pos_pl);
 			}
 			else
 				ft_error("Error map: more than one position player\n");
@@ -27,10 +40,10 @@ static int 	ft_contents_of_line(char *line, t_map *info, char *content)
 	return (0);
 }
 
-void	ft_copy_map(char *line, t_map *info)
+void				ft_copy_map(char *line, t_map *info)
 {
-	t_list	*newlist;
-	char 	*copy_line;
+	t_list			*newlist;
+	char			*copy_line;
 
 	if (!(copy_line = ft_strdup(line)))
 		ft_error("Error memory allocation\n");
@@ -53,16 +66,17 @@ void	ft_copy_map(char *line, t_map *info)
 	info->last_row = newlist;
 }
 
-static void 	ft_fill_array(t_map *info, int i, int count)
+static void			ft_fill_array(t_map *info, unsigned int i, \
+												unsigned int count)
 {
-	t_list		*ptr_line;
+	t_list			*ptr_line;
 
 	while (count < info->max_line_len)
 		info->arr_map[count++] = '1';
 	ptr_line = info->start_row;
-	while(ptr_line != NULL)
+	while (ptr_line != NULL)
 	{
-		while(((char *)ptr_line->content)[i] != '\0')
+		while (((char *)ptr_line->content)[i] != '\0')
 		{
 			info->arr_map[count] = ((char *)ptr_line->content)[i];
 			i++;
@@ -79,7 +93,7 @@ static void 	ft_fill_array(t_map *info, int i, int count)
 	}
 }
 
-void	ft_create_arr_map(t_map *info)
+void				ft_create_arr_map(t_map *info)
 {
 	unsigned int	size_arr;
 

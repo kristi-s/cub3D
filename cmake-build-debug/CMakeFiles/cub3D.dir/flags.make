@@ -6,5 +6,5 @@ C_FLAGS =  -L. -lmlx -framework OpenGL -framework AppKit -g -isysroot /Library/D
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/kristinasmirnova/21_school/cub3D/. -I/Users/kristinasmirnova/21_school/cub3D/minilibx_mms_20200219 -I/Users/kristinasmirnova/21_school/cub3D/libft -I/Users/kristinasmirnova/21_school/cub3D/get_next_line -I/Users/kristinasmirnova/21_school/cub3D/includes 
+C_INCLUDES = -I/Users/kristinasmirnova/21_school/cub3D_2/. -I/Users/kristinasmirnova/21_school/cub3D_2/minilibx_mms_20200219 -I/Users/kristinasmirnova/21_school/cub3D_2/libft -I/Users/kristinasmirnova/21_school/cub3D_2/get_next_line -I/Users/kristinasmirnova/21_school/cub3D_2/includes 
 

@@ -1,8 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/cub3D.dir/action.c.o"
   "CMakeFiles/cub3D.dir/begin.c.o"
+  "CMakeFiles/cub3D.dir/copy_map.c.o"
+  "CMakeFiles/cub3D.dir/create_screenshot.c.o"
   "CMakeFiles/cub3D.dir/draw.c.o"
-  "CMakeFiles/cub3D.dir/ft_copy_map.c.o"
   "CMakeFiles/cub3D.dir/ft_error.c.o"
   "CMakeFiles/cub3D.dir/libft/ft_atoi.c.o"
   "CMakeFiles/cub3D.dir/libft/ft_bzero.c.o"
@@ -12,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/cub3D.dir/libft/ft_isascii.c.o"
   "CMakeFiles/cub3D.dir/libft/ft_isdigit.c.o"
   "CMakeFiles/cub3D.dir/libft/ft_isprint.c.o"
+  "CMakeFiles/cub3D.dir/libft/ft_isspace.c.o"
   "CMakeFiles/cub3D.dir/libft/ft_itoa.c.o"
   "CMakeFiles/cub3D.dir/libft/ft_lstadd_back.c.o"
   "CMakeFiles/cub3D.dir/libft/ft_lstadd_front.c.o"

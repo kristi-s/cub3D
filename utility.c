@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   utility.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: droslyn <droslyn@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/17 23:50:15 by droslyn           #+#    #+#             */
-/*   Updated: 2021/03/18 19:49:08 by droslyn          ###   ########.fr       */
+/*   Created: 2021/03/18 21:29:54 by droslyn           #+#    #+#             */
+/*   Updated: 2021/03/19 00:24:23 by droslyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void		ft_error(char *str_err)
+void		ft_my_mlx_pixel_put(t_map *info, int x, int y, int color)
 {
-	size_t	len;
+	char	*dst;
 
-	len = ft_strlen(str_err);
-	write(2, str_err, len);
-	exit(1);
+	dst = info->addr + (y * info->line_length + x * (info->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }
