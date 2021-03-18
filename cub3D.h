@@ -158,12 +158,14 @@ typedef struct		s_map
 }					t_map;
 // key[8]: 0 = A; 1 = S; 2 = D; 3 = W; 4 = left; 5 = right; 6 = up; down = 7;
 
-int		ft_isspace(char c);
+void	ft_get_color(char *line, t_map *info);
 void 	ft_my_mlx_pixel_put(t_map *info, int x, int y, int color);
+int		ft_read_line(int fd, char **line);
 void	ft_read_map(t_map *info);
-void	ft_init_info(t_map	*info);
+void	ft_init_info(t_map	*info, int i);
+void	ft_check_texture(char *line, t_map *info, int i);
 //void 	draw_ver_line(t_map *info, int x, int y0, int y1);
-void		ft_copy_map(char *line, t_map *info);
+void	ft_copy_map(char *line, t_map *info);
 //int 	ft_contents_of_line(char *line, t_map *info, char *content);
 void	ft_create_arr_map(t_map *info);
 t_cam 	*ft_set_pos_player(unsigned int p_x, unsigned int p_y, char way_player); ///?????
@@ -175,10 +177,9 @@ void	ft_choose_action(int i, t_map *info);
 void 	ft_calc(t_map *info, t_cam *cam, unsigned int i, int x);
 void 	ft_render(t_map *info);
 //t_data		*ft_paint_texture(char *file, void *ptr_mlx);
-void		ft_paint_texture(t_map *info);
+void	ft_paint_texture(t_map *info);
 void 	ft_creat_txtr_wall(t_map *info, t_data *txtr, int x, t_cam *cam);
 void 	ft_draw_floor_ceiling(t_map *info, int x, int y1, int y2);
-
 void	ft_init_cam_other(t_cam *cam);
 void 	ft_calc_param_ray(int w, int x, t_cam *cam);
 void 	ft_find_wall(t_cam *cam, t_map *info, int hit);
@@ -191,10 +192,7 @@ void 	ft_draw_spr(t_map *info, t_sprt *spr, int txt_w, int txt_h);
 void	ft_count_sprite(t_map *info);
 
 void	ft_valid_map(t_map *info);
-
-//void	ft_puterror_mem(void);
 void	ft_error(char *str_err);
-
 void	ft_sort(t_map *info);
 
 

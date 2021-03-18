@@ -6,7 +6,7 @@
 /*   By: droslyn <droslyn@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 00:41:35 by droslyn           #+#    #+#             */
-/*   Updated: 2021/03/18 19:52:53 by droslyn          ###   ########.fr       */
+/*   Updated: 2021/03/19 02:01:24 by droslyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		main(int argc, char **argv)
 	{
 		if (!(info = malloc(sizeof(t_map))))
 			ft_error("Error memory allocation\n");
-		ft_init_info(info);
+		ft_init_info(info, 0);
 		info->file = argv[1];
 		if (argc == 3 && (ft_strncmp(argv[2], "--save", 6) == 0))
 			info->flag_save = 1;
