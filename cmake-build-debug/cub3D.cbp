@@ -92,6 +92,9 @@
 		<Unit filename="/Users/kristinasmirnova/21_school/cub3D_2/begin.c">
 			<Option target="cub3D"/>
 		</Unit>
+		<Unit filename="/Users/kristinasmirnova/21_school/cub3D_2/check_texture.c">
+			<Option target="cub3D"/>
+		</Unit>
 		<Unit filename="/Users/kristinasmirnova/21_school/cub3D_2/copy_map.c">
 			<Option target="cub3D"/>
 		</Unit>
@@ -101,7 +104,13 @@
 		<Unit filename="/Users/kristinasmirnova/21_school/cub3D_2/draw.c">
 			<Option target="cub3D"/>
 		</Unit>
+		<Unit filename="/Users/kristinasmirnova/21_school/cub3D_2/floor_ceiling_color.c">
+			<Option target="cub3D"/>
+		</Unit>
 		<Unit filename="/Users/kristinasmirnova/21_school/cub3D_2/ft_error.c">
+			<Option target="cub3D"/>
+		</Unit>
+		<Unit filename="/Users/kristinasmirnova/21_school/cub3D_2/hooks.c">
 			<Option target="cub3D"/>
 		</Unit>
 		<Unit filename="/Users/kristinasmirnova/21_school/cub3D_2/libft/ft_atoi.c">
@@ -246,6 +255,9 @@
 			<Option target="cub3D"/>
 		</Unit>
 		<Unit filename="/Users/kristinasmirnova/21_school/cub3D_2/sprites.c">
+			<Option target="cub3D"/>
+		</Unit>
+		<Unit filename="/Users/kristinasmirnova/21_school/cub3D_2/utility.c">
 			<Option target="cub3D"/>
 		</Unit>
 		<Unit filename="/Users/kristinasmirnova/21_school/cub3D_2/valid_map.c">

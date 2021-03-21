@@ -675,9 +675,22 @@ CMakeFiles/cub3D.dir/begin.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cub3D.dir/begin.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kristinasmirnova/21_school/cub3D_2/begin.c -o CMakeFiles/cub3D.dir/begin.c.s
 
+CMakeFiles/cub3D.dir/check_texture.c.o: CMakeFiles/cub3D.dir/flags.make
+CMakeFiles/cub3D.dir/check_texture.c.o: ../check_texture.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/cub3D.dir/check_texture.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/check_texture.c.o   -c /Users/kristinasmirnova/21_school/cub3D_2/check_texture.c
+
+CMakeFiles/cub3D.dir/check_texture.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cub3D.dir/check_texture.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/kristinasmirnova/21_school/cub3D_2/check_texture.c > CMakeFiles/cub3D.dir/check_texture.c.i
+
+CMakeFiles/cub3D.dir/check_texture.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cub3D.dir/check_texture.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kristinasmirnova/21_school/cub3D_2/check_texture.c -o CMakeFiles/cub3D.dir/check_texture.c.s
+
 CMakeFiles/cub3D.dir/copy_map.c.o: CMakeFiles/cub3D.dir/flags.make
 CMakeFiles/cub3D.dir/copy_map.c.o: ../copy_map.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/cub3D.dir/copy_map.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/cub3D.dir/copy_map.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/copy_map.c.o   -c /Users/kristinasmirnova/21_school/cub3D_2/copy_map.c
 
 CMakeFiles/cub3D.dir/copy_map.c.i: cmake_force
@@ -690,7 +703,7 @@ CMakeFiles/cub3D.dir/copy_map.c.s: cmake_force
 
 CMakeFiles/cub3D.dir/create_screenshot.c.o: CMakeFiles/cub3D.dir/flags.make
 CMakeFiles/cub3D.dir/create_screenshot.c.o: ../create_screenshot.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/cub3D.dir/create_screenshot.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/cub3D.dir/create_screenshot.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/create_screenshot.c.o   -c /Users/kristinasmirnova/21_school/cub3D_2/create_screenshot.c
 
 CMakeFiles/cub3D.dir/create_screenshot.c.i: cmake_force
@@ -703,7 +716,7 @@ CMakeFiles/cub3D.dir/create_screenshot.c.s: cmake_force
 
 CMakeFiles/cub3D.dir/draw.c.o: CMakeFiles/cub3D.dir/flags.make
 CMakeFiles/cub3D.dir/draw.c.o: ../draw.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/cub3D.dir/draw.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/cub3D.dir/draw.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/draw.c.o   -c /Users/kristinasmirnova/21_school/cub3D_2/draw.c
 
 CMakeFiles/cub3D.dir/draw.c.i: cmake_force
@@ -714,9 +727,22 @@ CMakeFiles/cub3D.dir/draw.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cub3D.dir/draw.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kristinasmirnova/21_school/cub3D_2/draw.c -o CMakeFiles/cub3D.dir/draw.c.s
 
+CMakeFiles/cub3D.dir/floor_ceiling_color.c.o: CMakeFiles/cub3D.dir/flags.make
+CMakeFiles/cub3D.dir/floor_ceiling_color.c.o: ../floor_ceiling_color.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/cub3D.dir/floor_ceiling_color.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/floor_ceiling_color.c.o   -c /Users/kristinasmirnova/21_school/cub3D_2/floor_ceiling_color.c
+
+CMakeFiles/cub3D.dir/floor_ceiling_color.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cub3D.dir/floor_ceiling_color.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/kristinasmirnova/21_school/cub3D_2/floor_ceiling_color.c > CMakeFiles/cub3D.dir/floor_ceiling_color.c.i
+
+CMakeFiles/cub3D.dir/floor_ceiling_color.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cub3D.dir/floor_ceiling_color.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kristinasmirnova/21_school/cub3D_2/floor_ceiling_color.c -o CMakeFiles/cub3D.dir/floor_ceiling_color.c.s
+
 CMakeFiles/cub3D.dir/ft_error.c.o: CMakeFiles/cub3D.dir/flags.make
 CMakeFiles/cub3D.dir/ft_error.c.o: ../ft_error.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/cub3D.dir/ft_error.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/cub3D.dir/ft_error.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/ft_error.c.o   -c /Users/kristinasmirnova/21_school/cub3D_2/ft_error.c
 
 CMakeFiles/cub3D.dir/ft_error.c.i: cmake_force
@@ -727,9 +753,22 @@ CMakeFiles/cub3D.dir/ft_error.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cub3D.dir/ft_error.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kristinasmirnova/21_school/cub3D_2/ft_error.c -o CMakeFiles/cub3D.dir/ft_error.c.s
 
+CMakeFiles/cub3D.dir/hooks.c.o: CMakeFiles/cub3D.dir/flags.make
+CMakeFiles/cub3D.dir/hooks.c.o: ../hooks.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/cub3D.dir/hooks.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/hooks.c.o   -c /Users/kristinasmirnova/21_school/cub3D_2/hooks.c
+
+CMakeFiles/cub3D.dir/hooks.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cub3D.dir/hooks.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/kristinasmirnova/21_school/cub3D_2/hooks.c > CMakeFiles/cub3D.dir/hooks.c.i
+
+CMakeFiles/cub3D.dir/hooks.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cub3D.dir/hooks.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kristinasmirnova/21_school/cub3D_2/hooks.c -o CMakeFiles/cub3D.dir/hooks.c.s
+
 CMakeFiles/cub3D.dir/main.c.o: CMakeFiles/cub3D.dir/flags.make
 CMakeFiles/cub3D.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/cub3D.dir/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/cub3D.dir/main.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/main.c.o   -c /Users/kristinasmirnova/21_school/cub3D_2/main.c
 
 CMakeFiles/cub3D.dir/main.c.i: cmake_force
@@ -742,7 +781,7 @@ CMakeFiles/cub3D.dir/main.c.s: cmake_force
 
 CMakeFiles/cub3D.dir/paint_texture.c.o: CMakeFiles/cub3D.dir/flags.make
 CMakeFiles/cub3D.dir/paint_texture.c.o: ../paint_texture.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/cub3D.dir/paint_texture.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/cub3D.dir/paint_texture.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/paint_texture.c.o   -c /Users/kristinasmirnova/21_school/cub3D_2/paint_texture.c
 
 CMakeFiles/cub3D.dir/paint_texture.c.i: cmake_force
@@ -755,7 +794,7 @@ CMakeFiles/cub3D.dir/paint_texture.c.s: cmake_force
 
 CMakeFiles/cub3D.dir/read_map.c.o: CMakeFiles/cub3D.dir/flags.make
 CMakeFiles/cub3D.dir/read_map.c.o: ../read_map.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/cub3D.dir/read_map.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/cub3D.dir/read_map.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/read_map.c.o   -c /Users/kristinasmirnova/21_school/cub3D_2/read_map.c
 
 CMakeFiles/cub3D.dir/read_map.c.i: cmake_force
@@ -768,7 +807,7 @@ CMakeFiles/cub3D.dir/read_map.c.s: cmake_force
 
 CMakeFiles/cub3D.dir/sprites.c.o: CMakeFiles/cub3D.dir/flags.make
 CMakeFiles/cub3D.dir/sprites.c.o: ../sprites.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/cub3D.dir/sprites.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/cub3D.dir/sprites.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/sprites.c.o   -c /Users/kristinasmirnova/21_school/cub3D_2/sprites.c
 
 CMakeFiles/cub3D.dir/sprites.c.i: cmake_force
@@ -779,9 +818,22 @@ CMakeFiles/cub3D.dir/sprites.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cub3D.dir/sprites.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kristinasmirnova/21_school/cub3D_2/sprites.c -o CMakeFiles/cub3D.dir/sprites.c.s
 
+CMakeFiles/cub3D.dir/utility.c.o: CMakeFiles/cub3D.dir/flags.make
+CMakeFiles/cub3D.dir/utility.c.o: ../utility.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/cub3D.dir/utility.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/utility.c.o   -c /Users/kristinasmirnova/21_school/cub3D_2/utility.c
+
+CMakeFiles/cub3D.dir/utility.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/cub3D.dir/utility.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/kristinasmirnova/21_school/cub3D_2/utility.c > CMakeFiles/cub3D.dir/utility.c.i
+
+CMakeFiles/cub3D.dir/utility.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cub3D.dir/utility.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/kristinasmirnova/21_school/cub3D_2/utility.c -o CMakeFiles/cub3D.dir/utility.c.s
+
 CMakeFiles/cub3D.dir/valid_map.c.o: CMakeFiles/cub3D.dir/flags.make
 CMakeFiles/cub3D.dir/valid_map.c.o: ../valid_map.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/cub3D.dir/valid_map.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/cub3D.dir/valid_map.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/cub3D.dir/valid_map.c.o   -c /Users/kristinasmirnova/21_school/cub3D_2/valid_map.c
 
 CMakeFiles/cub3D.dir/valid_map.c.i: cmake_force
@@ -840,14 +892,18 @@ cub3D_OBJECTS = \
 "CMakeFiles/cub3D.dir/libft/ft_toupper.c.o" \
 "CMakeFiles/cub3D.dir/action.c.o" \
 "CMakeFiles/cub3D.dir/begin.c.o" \
+"CMakeFiles/cub3D.dir/check_texture.c.o" \
 "CMakeFiles/cub3D.dir/copy_map.c.o" \
 "CMakeFiles/cub3D.dir/create_screenshot.c.o" \
 "CMakeFiles/cub3D.dir/draw.c.o" \
+"CMakeFiles/cub3D.dir/floor_ceiling_color.c.o" \
 "CMakeFiles/cub3D.dir/ft_error.c.o" \
+"CMakeFiles/cub3D.dir/hooks.c.o" \
 "CMakeFiles/cub3D.dir/main.c.o" \
 "CMakeFiles/cub3D.dir/paint_texture.c.o" \
 "CMakeFiles/cub3D.dir/read_map.c.o" \
 "CMakeFiles/cub3D.dir/sprites.c.o" \
+"CMakeFiles/cub3D.dir/utility.c.o" \
 "CMakeFiles/cub3D.dir/valid_map.c.o"
 
 # External object files for target cub3D
@@ -899,18 +955,22 @@ cub3D: CMakeFiles/cub3D.dir/libft/ft_tolower.c.o
 cub3D: CMakeFiles/cub3D.dir/libft/ft_toupper.c.o
 cub3D: CMakeFiles/cub3D.dir/action.c.o
 cub3D: CMakeFiles/cub3D.dir/begin.c.o
+cub3D: CMakeFiles/cub3D.dir/check_texture.c.o
 cub3D: CMakeFiles/cub3D.dir/copy_map.c.o
 cub3D: CMakeFiles/cub3D.dir/create_screenshot.c.o
 cub3D: CMakeFiles/cub3D.dir/draw.c.o
+cub3D: CMakeFiles/cub3D.dir/floor_ceiling_color.c.o
 cub3D: CMakeFiles/cub3D.dir/ft_error.c.o
+cub3D: CMakeFiles/cub3D.dir/hooks.c.o
 cub3D: CMakeFiles/cub3D.dir/main.c.o
 cub3D: CMakeFiles/cub3D.dir/paint_texture.c.o
 cub3D: CMakeFiles/cub3D.dir/read_map.c.o
 cub3D: CMakeFiles/cub3D.dir/sprites.c.o
+cub3D: CMakeFiles/cub3D.dir/utility.c.o
 cub3D: CMakeFiles/cub3D.dir/valid_map.c.o
 cub3D: CMakeFiles/cub3D.dir/build.make
 cub3D: CMakeFiles/cub3D.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Linking C executable cub3D"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Linking C executable cub3D"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cub3D.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

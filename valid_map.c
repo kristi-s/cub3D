@@ -6,11 +6,11 @@
 /*   By: droslyn <droslyn@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 01:15:02 by droslyn           #+#    #+#             */
-/*   Updated: 2021/03/18 01:15:36 by droslyn          ###   ########.fr       */
+/*   Updated: 2021/03/21 18:50:35 by droslyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 static void			ft_isvalid_first_line(int i, t_map *info)
 {
@@ -57,12 +57,23 @@ static void			ft_isvalid_last_line(int i, t_map *info)
 		info->arr_map[i] = '1';
 }
 
+static void			ft_check_init_pos_and_color(t_map *info)
+{
+	if (info->pos_pl == 0)
+		ft_error("Error map: map hasn't position player\n");
+	if (info->floor_color == NOCOLOR)
+		ft_error("Error map: not initialized color of floor\n");
+	if (info->ceiling_color == NOCOLOR)
+		ft_error("Error map: not initialized color of ceiling\n");
+	if (info->w == 0 || info->h == 0)
+		ft_error("Error map: not initialized resolution\n");
+}
+
 void				ft_valid_map(t_map *info)
 {
 	unsigned int	i;
 
-	if (info->pos_pl == 0)
-		ft_error("Error map: map hasn't position player\n");
+	ft_check_init_pos_and_color(info);
 	i = info->max_line_len;
 	while (i < info->max_line_len * 2)
 	{

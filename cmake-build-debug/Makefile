@@ -197,6 +197,33 @@ begin.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/begin.c.s
 .PHONY : begin.c.s
 
+check_texture.o: check_texture.c.o
+
+.PHONY : check_texture.o
+
+# target to build an object file
+check_texture.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/check_texture.c.o
+.PHONY : check_texture.c.o
+
+check_texture.i: check_texture.c.i
+
+.PHONY : check_texture.i
+
+# target to preprocess a source file
+check_texture.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/check_texture.c.i
+.PHONY : check_texture.c.i
+
+check_texture.s: check_texture.c.s
+
+.PHONY : check_texture.s
+
+# target to generate assembly for a file
+check_texture.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/check_texture.c.s
+.PHONY : check_texture.c.s
+
 copy_map.o: copy_map.c.o
 
 .PHONY : copy_map.o
@@ -278,6 +305,33 @@ draw.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/draw.c.s
 .PHONY : draw.c.s
 
+floor_ceiling_color.o: floor_ceiling_color.c.o
+
+.PHONY : floor_ceiling_color.o
+
+# target to build an object file
+floor_ceiling_color.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/floor_ceiling_color.c.o
+.PHONY : floor_ceiling_color.c.o
+
+floor_ceiling_color.i: floor_ceiling_color.c.i
+
+.PHONY : floor_ceiling_color.i
+
+# target to preprocess a source file
+floor_ceiling_color.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/floor_ceiling_color.c.i
+.PHONY : floor_ceiling_color.c.i
+
+floor_ceiling_color.s: floor_ceiling_color.c.s
+
+.PHONY : floor_ceiling_color.s
+
+# target to generate assembly for a file
+floor_ceiling_color.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/floor_ceiling_color.c.s
+.PHONY : floor_ceiling_color.c.s
+
 ft_error.o: ft_error.c.o
 
 .PHONY : ft_error.o
@@ -304,6 +358,33 @@ ft_error.s: ft_error.c.s
 ft_error.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/ft_error.c.s
 .PHONY : ft_error.c.s
+
+hooks.o: hooks.c.o
+
+.PHONY : hooks.o
+
+# target to build an object file
+hooks.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/hooks.c.o
+.PHONY : hooks.c.o
+
+hooks.i: hooks.c.i
+
+.PHONY : hooks.i
+
+# target to preprocess a source file
+hooks.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/hooks.c.i
+.PHONY : hooks.c.i
+
+hooks.s: hooks.c.s
+
+.PHONY : hooks.s
+
+# target to generate assembly for a file
+hooks.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/hooks.c.s
+.PHONY : hooks.c.s
 
 libft/ft_atoi.o: libft/ft_atoi.c.o
 
@@ -1601,6 +1682,33 @@ sprites.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/sprites.c.s
 .PHONY : sprites.c.s
 
+utility.o: utility.c.o
+
+.PHONY : utility.o
+
+# target to build an object file
+utility.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/utility.c.o
+.PHONY : utility.c.o
+
+utility.i: utility.c.i
+
+.PHONY : utility.i
+
+# target to preprocess a source file
+utility.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/utility.c.i
+.PHONY : utility.c.i
+
+utility.s: utility.c.s
+
+.PHONY : utility.s
+
+# target to generate assembly for a file
+utility.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3D.dir/build.make CMakeFiles/cub3D.dir/utility.c.s
+.PHONY : utility.c.s
+
 valid_map.o: valid_map.c.o
 
 .PHONY : valid_map.o
@@ -1643,6 +1751,9 @@ help:
 	@echo "... begin.o"
 	@echo "... begin.i"
 	@echo "... begin.s"
+	@echo "... check_texture.o"
+	@echo "... check_texture.i"
+	@echo "... check_texture.s"
 	@echo "... copy_map.o"
 	@echo "... copy_map.i"
 	@echo "... copy_map.s"
@@ -1652,9 +1763,15 @@ help:
 	@echo "... draw.o"
 	@echo "... draw.i"
 	@echo "... draw.s"
+	@echo "... floor_ceiling_color.o"
+	@echo "... floor_ceiling_color.i"
+	@echo "... floor_ceiling_color.s"
 	@echo "... ft_error.o"
 	@echo "... ft_error.i"
 	@echo "... ft_error.s"
+	@echo "... hooks.o"
+	@echo "... hooks.i"
+	@echo "... hooks.s"
 	@echo "... libft/ft_atoi.o"
 	@echo "... libft/ft_atoi.i"
 	@echo "... libft/ft_atoi.s"
@@ -1799,6 +1916,9 @@ help:
 	@echo "... sprites.o"
 	@echo "... sprites.i"
 	@echo "... sprites.s"
+	@echo "... utility.o"
+	@echo "... utility.i"
+	@echo "... utility.s"
 	@echo "... valid_map.o"
 	@echo "... valid_map.i"
 	@echo "... valid_map.s"

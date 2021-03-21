@@ -6,10 +6,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/kristinasmirnova/21_school/cub3D_2/action.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/action.c.o"
   "/Users/kristinasmirnova/21_school/cub3D_2/begin.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/begin.c.o"
+  "/Users/kristinasmirnova/21_school/cub3D_2/check_texture.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/check_texture.c.o"
   "/Users/kristinasmirnova/21_school/cub3D_2/copy_map.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/copy_map.c.o"
   "/Users/kristinasmirnova/21_school/cub3D_2/create_screenshot.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/create_screenshot.c.o"
   "/Users/kristinasmirnova/21_school/cub3D_2/draw.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/draw.c.o"
+  "/Users/kristinasmirnova/21_school/cub3D_2/floor_ceiling_color.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/floor_ceiling_color.c.o"
   "/Users/kristinasmirnova/21_school/cub3D_2/ft_error.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/ft_error.c.o"
+  "/Users/kristinasmirnova/21_school/cub3D_2/hooks.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/hooks.c.o"
   "/Users/kristinasmirnova/21_school/cub3D_2/libft/ft_atoi.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/libft/ft_atoi.c.o"
   "/Users/kristinasmirnova/21_school/cub3D_2/libft/ft_bzero.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/libft/ft_bzero.c.o"
   "/Users/kristinasmirnova/21_school/cub3D_2/libft/ft_calloc.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/libft/ft_calloc.c.o"
@@ -58,6 +61,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/kristinasmirnova/21_school/cub3D_2/paint_texture.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/paint_texture.c.o"
   "/Users/kristinasmirnova/21_school/cub3D_2/read_map.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/read_map.c.o"
   "/Users/kristinasmirnova/21_school/cub3D_2/sprites.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/sprites.c.o"
+  "/Users/kristinasmirnova/21_school/cub3D_2/utility.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/utility.c.o"
   "/Users/kristinasmirnova/21_school/cub3D_2/valid_map.c" "/Users/kristinasmirnova/21_school/cub3D_2/cmake-build-debug/CMakeFiles/cub3D.dir/valid_map.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

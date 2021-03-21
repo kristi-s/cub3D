@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 t_data		*ft_create_img_txtr(char *file, void *ptr_mlx)
 {
@@ -62,6 +62,8 @@ void		ft_creat_txtr_wall(t_map *info, t_data *txtr, int x, t_cam *cam)
 		txtr->y = (int)txtr->pos & (txtr->height - 1);
 		txtr->pos += txtr->step;
 		texture_pixel = ft_get_pxl_clr(txtr, txtr->x, txtr->y);
+		if ((texture_pixel & 0x00FFFFFF) == 0)
+			texture_pixel = 0x00111111;
 		ft_my_mlx_pixel_put(info, x, i, texture_pixel);
 		i++;
 	}

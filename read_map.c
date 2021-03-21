@@ -10,24 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 void			ft_check_resolution(char *line, t_map *info)
 {
-	int			i;
 	int			x;
 	int			y;
 
-	i = 0;
-	info->w = ft_atoi(line);
-	while (ft_isspace(line[i]))
-		i++;
-	while (ft_isdigit(line[i]))
-		i++;
-	info->h = ft_atoi(&line[i]);
+	if (info->w != 0)
+		ft_error("Error map: init resolution twice\n");
+	ft_parse_resolution(line, info);
 	mlx_get_screen_size(info->mlx, &x, &y);
 	if ((info->w <= 0) || (info->h <= 0) ||
-		(info->w > x) || (info->h > y))
+			(info->flag_save == 0 && (info->w > x || info->h > y)))
 	{
 		info->w = x;
 		info->h = y;
@@ -103,8 +98,8 @@ void			ft_init_info(t_map *info, int i)
 	info->west_txtr = NULL;
 	info->east_txtr = NULL;
 	info->sprite_txtr = NULL;
-	info->floor_color = 0;
-	info->ceiling_color = 0;
+	info->floor_color = NOCOLOR;
+	info->ceiling_color = NOCOLOR;
 	info->count_line = 0;
 	info->max_line_len = 0;
 	info->count_sprites = 0;

@@ -6,7 +6,7 @@
 #    By: droslyn <droslyn@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/30 20:58:17 by droslyn           #+#    #+#              #
-#    Updated: 2021/03/19 01:43:30 by droslyn          ###   ########.fr        #
+#    Updated: 2021/03/22 00:40:26 by droslyn          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,30 +16,28 @@ SRCS = action.c begin.c copy_map.c draw.c ft_error.c main.c paint_texture.c \
 		read_map.c sprites.c valid_map.c create_screenshot.c utility.c \
 		hooks.c floor_ceiling_color.c check_texture.c
 OBJS = ${SRCS:.c=.o}
+INC = ${SRCS:.c=.d}
 CC = gcc
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -MD
 MLX = -Lmlx -lmlx -framework OpenGL -framework AppKit
-# -L.
+
 
 .c.o:
 		${CC} ${CFLAGS} -Imlx -I./ -c $< -o $@
 
-#%.o: %.c cub3D.h
-#	${CC} ${CFLAGS} -Imlx -c $< -o $@
-# $(NAME): $(OBJ)
-#     $(CC) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 ${NAME}: ${OBJS}
 #		${MAKE} -C ./mlx
-#		cp mlx/libmlx.dylib ./
+		cp ./mlx/libmlx.dylib ./
 		${MAKE} -C ./libft
 		${CC} ${OBJS} -I. -I./mlx ${CFLAGS} ${MLX} ./libft/libft.a -o ${NAME}
+include ${wildcard ${INC}}
 
 all:	${NAME}
 
 clean:
-		${RM} ${OBJS}
+		${RM} ${OBJS} ${INC}
 		${MAKE} fclean -C ${LIBFT}
 
 fclean:	clean

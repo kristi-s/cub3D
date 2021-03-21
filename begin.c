@@ -6,11 +6,11 @@
 /*   By: droslyn <droslyn@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 00:55:36 by droslyn           #+#    #+#             */
-/*   Updated: 2021/03/19 00:21:56 by droslyn          ###   ########.fr       */
+/*   Updated: 2021/03/19 02:16:30 by droslyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 static t_cam	*ft_init_cam(unsigned int p_x, unsigned int p_y)
 {
@@ -113,8 +113,8 @@ void			ft_render(t_map *info)
 	mlx_put_image_to_window(info->mlx, info->win, info->img, 0, 0);
 	mlx_destroy_image(info->mlx, info->img);
 	mlx_loop_hook(info->mlx, ft_render_next, info);
-	mlx_hook(info->win, KEYPRESS, KeyPressMask, ft_key_press, info);
-	mlx_hook(info->win, KEYRELEASE, KeyReleaseMask, ft_key_release, info);
-	mlx_hook(info->win, DestroyNotify, StructureNotifyMask, ft_close, info);
+	mlx_hook(info->win, KEYPRESS, KEYPRESSMASK, ft_key_press, info);
+	mlx_hook(info->win, KEYRELEASE, KEYRELEASEMASK, ft_key_release, info);
+	mlx_hook(info->win, DESTROYNOTIFY, STRUCTURENOTIFYMASK, ft_close, info);
 	mlx_loop(info->mlx);
 }

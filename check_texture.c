@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 static char		**ft_switch_txtr(char *line, t_map *info)
 {
@@ -33,7 +33,7 @@ static char		**ft_switch_txtr(char *line, t_map *info)
 	else if (line[0] == 'S' && line[1] == ' ')
 		return (&info->sprite_txtr);
 	else
-		ft_error("Error map: error texture\n");
+		ft_error("Error map: error texture or map is open\n");
 	return (0);
 }
 

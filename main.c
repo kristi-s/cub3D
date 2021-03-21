@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 int		main(int argc, char **argv)
 {
@@ -18,6 +18,7 @@ int		main(int argc, char **argv)
 
 	if (argc == 2 || argc == 3)
 	{
+		ft_check_extension(argv[1], ".cub");
 		if (!(info = malloc(sizeof(t_map))))
 			ft_error("Error memory allocation\n");
 		ft_init_info(info, 0);

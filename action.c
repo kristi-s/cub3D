@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 static void		ft_move(t_cam *cam, char *arr_map, unsigned int size, int way)
 {

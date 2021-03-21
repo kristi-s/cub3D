@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 static int			ft_contents_of_line(char *line, t_map *info, char *content)
 {
@@ -54,7 +54,7 @@ void				ft_copy_map(char *line, t_map *info)
 		if (ft_contents_of_line(line, info, "1 ") == 1)
 			info->start_row = newlist;
 		else
-			ft_error("Error map: not valid first line of map\n");
+			ft_error("Error map: not valid simbol in line of map\n");
 	}
 	else
 	{

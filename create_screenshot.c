@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "cub3d.h"
 
 static void			ft_bmp_header_init(unsigned char *buf, t_map *info)
 {
